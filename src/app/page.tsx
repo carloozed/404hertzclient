@@ -13,8 +13,8 @@ export default function Home() {
       <LoginForm />
       <LogoutUser />
       <SignupForm />
-      <ButtonBlack buttonText={'Black Button'} />
-      <ButtonWhite buttonText={'White Button'} />
+      <ButtonBlack buttonText={'Sign Up'} />
+      <ButtonWhite buttonText={'Log In'} />
       <Logo height={200} hasLink={false} />
     </div>
   );

@@ -3,16 +3,14 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { logout } from '../../../../lib/api/logout';
-import styles from './LogoutUser.module.css'; // Adjust the path as needed
 
 import React from 'react';
+import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
 
 export default function LogoutUser() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const logoutUser = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const logoutUser = async () => {
     try {
       await logout();
 
@@ -25,8 +23,11 @@ export default function LogoutUser() {
   };
 
   return (
-    <button type="button" onClick={logoutUser} className={styles.button}>
-      {loading ? 'Logging out...' : 'Logout'}
-    </button>
+    <ButtonBlack
+      buttonText="Log Out"
+      onClick={logoutUser}
+      type="button"
+      disabled={loading}
+    />
   );
 }

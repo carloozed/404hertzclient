@@ -13,6 +13,7 @@ export type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
   arrowWidth?: number;
   arrowHeight?: number;
+  hasImage?: boolean;
 };
 
 export default function ButtonBlack({
@@ -21,20 +22,23 @@ export default function ButtonBlack({
   arrowWidth,
   arrowHeight,
   type,
+  hasImage = true,
 }: ButtonProps) {
   return (
     <button onClick={onClick} className={styles.button} type={type}>
       <div className={styles.box}>
         <p>{buttonText ? buttonText : 'Black Button'}</p>
       </div>
-      <div className={styles.box}>
-        <Image
-          src={BlackArrow}
-          alt="Black Arrow"
-          width={arrowWidth || 14}
-          height={arrowHeight || 14}
-        />
-      </div>
+      {hasImage && (
+        <div className={styles.box}>
+          <Image
+            src={BlackArrow}
+            alt="Black Arrow"
+            width={arrowWidth || 11}
+            height={arrowHeight || 11}
+          />
+        </div>
+      )}
     </button>
   );
 }

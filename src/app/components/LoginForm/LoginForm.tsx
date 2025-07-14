@@ -5,6 +5,10 @@ import { useRouter } from 'next/navigation';
 import { login } from '../../../../lib/api/login';
 import styles from './LoginForm.module.css'; // Adjust the path as needed
 
+// component imports
+
+import ButtonWhite from '../Buttons/ButtonWhite/ButtonWhite';
+
 import React from 'react';
 
 export default function LoginForm() {
@@ -33,8 +37,8 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <div>
-        <label htmlFor="email">Email:</label>
+      <div className={styles.formGroup}>
+        <label htmlFor="email">Email</label>
         <input
           id="email"
           name="email"
@@ -46,8 +50,8 @@ export default function LoginForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="password">Password:</label>
+      <div className={styles.formGroup}>
+        <label htmlFor="password">Password</label>
         <input
           id="password"
           name="password"
@@ -60,12 +64,19 @@ export default function LoginForm() {
       </div>
 
       {error && (
-        <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>
+        <div
+          style={{
+            color: 'red',
+            marginBottom: '10px',
+            marginTop: '10px',
+            fontSize: 'calc(0.4vw + 0.4rem)',
+          }}
+        >
+          {error}
+        </div>
       )}
 
-      <button type="submit" disabled={loading}>
-        {loading ? 'Logging in...' : 'Login'}
-      </button>
+      <ButtonWhite buttonText="Log In" type={'submit'} />
     </form>
   );
 }
