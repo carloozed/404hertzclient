@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import Image from 'next/image';
 
-import LogoSrc from '../../../../public/logo/png/logo.png'; // Adjust the path as needed
+import LogoSrc from '../../../../public/images/logo/png/logo.png'; // Adjust the path as needed
 
 type Props = {
   className?: string;

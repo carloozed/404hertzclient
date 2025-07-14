@@ -1,0 +1,31 @@
+.button {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box {
+    padding: calc(0.4rem + 0.4vw);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.box:nth-of-type(1) {
+    background-color: var(--black);
+}
+
+.box:nth-of-type(2) {
+    background-color: white;
+}
+
+.box:nth-of-type(1) p {
+    color: white;
+    text-transform: uppercase;
+    font-weight: var(--medium);
+}
+
+.box img {
+    scale: 1.2
+}
