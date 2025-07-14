@@ -1,5 +1,8 @@
 import LoginForm from './components/LoginForm/LoginForm';
+import Logo from './components/Logo/Logo';
 import LogoutUser from './components/LogoutUser/LogoutUser';
+import SignupForm from './components/SignupForm/SignupForm';
+
 import styles from './page.module.css';
 
 export default function Home() {
@@ -9,12 +12,8 @@ export default function Home() {
     <div className={styles.page}>
       <LoginForm />
       <LogoutUser />
-      <h1>404Hertz</h1>
-      <h2>404Hertz</h2>
-      <h3>404Hertz</h3>
-      <h4>404Hertz</h4>
-      <h5>404Hertz</h5>
-      <h6>404Hertz</h6>
+      <SignupForm />
+      <Logo height={200} hasLink={false} />
     </div>
   );
 }

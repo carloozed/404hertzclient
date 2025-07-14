@@ -22,7 +22,7 @@
   /* colors */
 
   --main-color: #FAFF00;
-  --black: #1e1e1e;
+  --black: #2f2f2f;
 }
 
 
@@ -54,6 +54,11 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--black);
+}
+
+*::selection {
+  color: var(--main-color);
+  background-color: var(--black);
 }
 
 a {
