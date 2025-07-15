@@ -14,6 +14,7 @@ export type ButtonProps = {
   arrowWidth?: number;
   arrowHeight?: number;
   hasImage?: boolean;
+  hasText?: boolean;
 };
 
 export default function ButtonBlack({
@@ -23,12 +24,15 @@ export default function ButtonBlack({
   arrowHeight,
   type,
   hasImage = true,
+  hasText = true,
 }: ButtonProps) {
   return (
     <button onClick={onClick} className={styles.button} type={type}>
-      <div className={styles.box}>
-        <p>{buttonText ? buttonText : 'Black Button'}</p>
-      </div>
+      {hasText && (
+        <div className={styles.box}>
+          <p>{buttonText ? buttonText : 'Black Button'}</p>
+        </div>
+      )}
       {hasImage && (
         <div className={styles.box}>
           <Image

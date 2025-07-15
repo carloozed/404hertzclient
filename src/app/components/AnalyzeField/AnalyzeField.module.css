@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    align-items: center;
+}
+
+.form input {
+    height: 2rem;
+}

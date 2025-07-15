@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react';
 import { signup } from '../../../../lib/api/signup';
+import FormGroup from '../FormGroup/FormGroup';
+import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
 
 export default function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,7 +30,42 @@ export default function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div></div>
+      <FormGroup
+        label="Username"
+        onChange={(e) => setUsername(e.target.value)}
+        id="username"
+        name="username"
+        value={username}
+        required
+      />
+      <FormGroup
+        label="Email"
+        onChange={(e) => setEmail(e.target.value)}
+        id="email"
+        name="email"
+        value={email}
+        required
+        type="email"
+      />
+      <FormGroup
+        label="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        id="password"
+        name="password"
+        value={password}
+        required
+        type="password"
+      />
+      <FormGroup
+        label="Confirm Password"
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        id="confirmPassword"
+        name="confirmPassword"
+        value={confirmPassword}
+        required
+        type="password"
+      />
+      <ButtonBlack buttonText="Sign up" type="submit" />
       {error && (
         <p
           style={{

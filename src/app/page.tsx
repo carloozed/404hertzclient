@@ -7,6 +7,7 @@ import ButtonWhite from './components/Buttons/ButtonWhite/ButtonWhite';
 import PasswordReset from './components/PasswordReset/PasswordReset';
 
 import styles from './page.module.css';
+import AnalyzeField from './components/AnalyzeField/AnalyzeField';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ButtonBlack buttonText={'Sign Up'} />
       <ButtonWhite buttonText={'Log In'} />
       <PasswordReset />
+      <AnalyzeField />
       <Logo height={200} hasLink={false} />
     </div>
   );
