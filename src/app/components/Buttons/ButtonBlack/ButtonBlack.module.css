@@ -4,22 +4,28 @@
     align-items: center;
     cursor: pointer;
     background-color: white;
+    width: fit-content;
+    height: 2rem;
 }
 
 .box {
-    padding: calc(0.3rem + 0.3vw);
     display: flex;
     align-items: center;
     position: relative;
     justify-content: center;
+
 }
 
 .box:nth-of-type(1) {
     background-color: var(--black);
+    height: 100%;
+    padding: 0 1rem;
 }
 
 .box:nth-of-type(2) {
     background-color: white;
+    height: 100%;
+    width: 2rem;
 }
 
 .box:nth-of-type(1) p {

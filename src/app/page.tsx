@@ -4,6 +4,7 @@ import LogoutUser from './components/LogoutUser/LogoutUser';
 import SignupForm from './components/SignupForm/SignupForm';
 import ButtonBlack from './components/Buttons/ButtonBlack/ButtonBlack';
 import ButtonWhite from './components/Buttons/ButtonWhite/ButtonWhite';
+import PasswordReset from './components/PasswordReset/PasswordReset';
 
 import styles from './page.module.css';
 
@@ -15,6 +16,7 @@ export default function Home() {
       <SignupForm />
       <ButtonBlack buttonText={'Sign Up'} />
       <ButtonWhite buttonText={'Log In'} />
+      <PasswordReset />
       <Logo height={200} hasLink={false} />
     </div>
   );
