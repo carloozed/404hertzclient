@@ -10,6 +10,7 @@ import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
 export default function LogoutUser() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
   const logoutUser = async () => {
     try {
       await logout();

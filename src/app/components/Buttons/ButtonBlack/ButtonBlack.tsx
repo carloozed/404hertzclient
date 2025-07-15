@@ -28,11 +28,10 @@ export default function ButtonBlack({
 }: ButtonProps) {
   return (
     <button onClick={onClick} className={styles.button} type={type}>
-      {hasText && (
-        <div className={styles.box}>
-          <p>{buttonText ? buttonText : 'Black Button'}</p>
-        </div>
-      )}
+      <div className={styles.box}>
+        {hasText && <p>{buttonText ? buttonText : 'Black Button'}</p>}
+      </div>
+
       {hasImage && (
         <div className={styles.box}>
           <Image
