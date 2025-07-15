@@ -10,6 +10,7 @@ import styles from './LoginForm.module.css'; // Adjust the path as needed
 import ButtonWhite from '../Buttons/ButtonWhite/ButtonWhite';
 
 import React from 'react';
+import FormGroup from '../FormGroup/FormGroup';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ export default function LoginForm() {
 
       router.push('/dashboard');
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      setError(err instanceof Error ? err.message : 'Login failed');
       console.error('Login error:', err);
     } finally {
       setLoading(false);
@@ -37,34 +38,29 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <div className={styles.formGroup}>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          disabled={loading}
-        />
-      </div>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          disabled={loading}
-        />
-      </div>
-
+      <FormGroup
+        id="email"
+        name="email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        disabled={loading}
+        label="Email"
+      />
+      <FormGroup
+        id="password"
+        name="password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        disabled={loading}
+        label="Password"
+      />
+      <ButtonWhite buttonText="Log In" type={'submit'} />{' '}
       {error && (
-        <div
+        <p
           style={{
             color: 'red',
             marginBottom: '10px',
@@ -72,11 +68,9 @@ export default function LoginForm() {
             fontSize: 'calc(0.4vw + 0.4rem)',
           }}
         >
-          {error}
-        </div>
+          Login failed: {error}
+        </p>
       )}
-
-      <ButtonWhite buttonText="Log In" type={'submit'} />
     </form>
   );
 }

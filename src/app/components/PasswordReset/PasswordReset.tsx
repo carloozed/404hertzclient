@@ -6,6 +6,7 @@ import styles from './PasswordReset.module.css';
 
 import { passwordReset } from '../../../../lib/api/passwordReset';
 import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
+import FormGroup from '../FormGroup/FormGroup';
 
 export default function PasswordReset() {
   const [email, setEmail] = useState('');
@@ -25,13 +26,13 @@ export default function PasswordReset() {
   };
   return (
     <form className={styles.form} onSubmit={requestPasswordReset}>
-      <label>Enter your email:</label>
-      <input
+      <FormGroup
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        label="Enter your Email"
       />
-      <ButtonBlack type={'submit'} buttonText="Reset Password" />
+      <ButtonBlack type={'submit'} buttonText="Request Reset Link" />
     </form>
   );
 }

@@ -1,0 +1,5 @@
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.1vw + 0.1rem)
+}
