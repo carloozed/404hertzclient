@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { logout } from '../../../../../lib/api/logout';
 
 import React from 'react';
-import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
+import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 
 export default function LogoutUser() {
   const router = useRouter();

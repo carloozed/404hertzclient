@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { analyze } from '../../../../../lib/api/analyze';
-import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
+import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import styles from './AnalyzeField.module.css'; // Adjust the path as needed
 
 export default function AnalyzeField() {

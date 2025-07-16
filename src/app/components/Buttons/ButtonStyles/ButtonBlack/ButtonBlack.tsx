@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'next/image';
 import styles from './ButtonBlack.module.css'; // Adjust the path as needed
-import BlackArrow from '../../../../../public/images/arrows/black/arrow_black.svg';
+import BlackArrow from '../../../../../../public/images/arrows/black/arrow_black.svg';
 
 export type ButtonProps = {
   onClick?: () => void;

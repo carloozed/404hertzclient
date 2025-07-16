@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { passwordReset } from '../../../../../lib/api/passwordReset';
-import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
+import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import FormGroup from '../FormGroup/FormGroup';
 import FormContainer from '../FormContainer/FormContainer';
 

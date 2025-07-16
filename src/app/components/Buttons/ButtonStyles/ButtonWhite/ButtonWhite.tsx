@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'next/image';
 import styles from './ButtonWhite.module.css'; // Adjust the path as needed
-import WhiteArrow from '../../../../../public/images/arrows/white/arrow_white.svg';
+import WhiteArrow from '../../../../../../public/images/arrows/white/arrow_white.svg';
 
 export type ButtonProps = {
   onClick?: () => void;

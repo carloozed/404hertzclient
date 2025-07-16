@@ -6,7 +6,7 @@ import { login } from '../../../../../lib/api/login';
 
 // component imports
 import FormContainer from '../FormContainer/FormContainer';
-import ButtonWhite from '../../Buttons/ButtonWhite/ButtonWhite';
+import ButtonWhite from '../../Buttons/ButtonStyles/ButtonWhite/ButtonWhite';
 
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
@@ -35,6 +35,13 @@ export default function LoginForm() {
     }
   };
 
+  const errorStyles = {
+    color: 'red',
+    marginBottom: '10px',
+    marginTop: '10px',
+    fontSize: 'calc(0.4vw + 0.4rem)',
+  };
+
   return (
     <FormContainer onSubmit={handleSubmit}>
       <FormGroup
@@ -57,19 +64,12 @@ export default function LoginForm() {
         disabled={loading}
         label="Password"
       />
-      <ButtonWhite buttonText="Log In" type={'submit'} />{' '}
-      {error && (
-        <p
-          style={{
-            color: 'red',
-            marginBottom: '10px',
-            marginTop: '10px',
-            fontSize: 'calc(0.4vw + 0.4rem)',
-          }}
-        >
-          Login failed: {error}
-        </p>
-      )}
+      <ButtonWhite
+        buttonText={loading ? 'Logging In' : 'Log In'}
+        type={'submit'}
+        disabled={loading}
+      />{' '}
+      {error && <p style={errorStyles}>Login failed: {error}</p>}
     </FormContainer>
   );
 }

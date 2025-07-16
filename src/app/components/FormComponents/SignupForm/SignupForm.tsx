@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { signup } from '../../../../../lib/api/signup';
 import FormGroup from '../FormGroup/FormGroup';
-import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
+import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import FormContainer from '../FormContainer/FormContainer';
 
 export default function SignupForm() {

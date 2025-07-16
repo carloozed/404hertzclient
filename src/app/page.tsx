@@ -2,8 +2,8 @@ import LoginForm from './components/FormComponents/LoginForm/LoginForm';
 import Logo from './components/Logo/Logo';
 import LogoutUser from './components/FormComponents/LogoutUser/LogoutUser';
 import SignupForm from './components/FormComponents/SignupForm/SignupForm';
-import ButtonBlack from './components/Buttons/ButtonBlack/ButtonBlack';
-import ButtonWhite from './components/Buttons/ButtonWhite/ButtonWhite';
+import ButtonBlack from './components/Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
+import ButtonWhite from './components/Buttons/ButtonStyles/ButtonWhite/ButtonWhite';
 import PasswordReset from './components/FormComponents/PasswordReset/PasswordReset';
 
 import styles from './page.module.css';
