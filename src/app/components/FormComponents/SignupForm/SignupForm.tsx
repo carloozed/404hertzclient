@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { signup } from '../../../../lib/api/signup';
+import { signup } from '../../../../../lib/api/signup';
 import FormGroup from '../FormGroup/FormGroup';
-import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
+import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
+import FormContainer from '../FormContainer/FormContainer';
 
 export default function SignupForm() {
   const [username, setUsername] = useState('');
@@ -29,7 +30,7 @@ export default function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit}>
       <FormGroup
         label="Username"
         onChange={(e) => setUsername(e.target.value)}
@@ -78,6 +79,6 @@ export default function SignupForm() {
           Signup failed: {error}
         </p>
       )}
-    </form>
+    </FormContainer>
   );
 }

@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { login } from '../../../../lib/api/login';
-import styles from './LoginForm.module.css'; // Adjust the path as needed
+import { login } from '../../../../../lib/api/login';
 
 // component imports
-
-import ButtonWhite from '../Buttons/ButtonWhite/ButtonWhite';
+import FormContainer from '../FormContainer/FormContainer';
+import ButtonWhite from '../../Buttons/ButtonWhite/ButtonWhite';
 
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
@@ -37,7 +36,7 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <FormContainer onSubmit={handleSubmit}>
       <FormGroup
         id="email"
         name="email"
@@ -71,6 +70,6 @@ export default function LoginForm() {
           Login failed: {error}
         </p>
       )}
-    </form>
+    </FormContainer>
   );
 }

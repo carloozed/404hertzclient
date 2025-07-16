@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './PasswordReset.module.css';
 
-import { passwordReset } from '../../../../lib/api/passwordReset';
-import ButtonBlack from '../Buttons/ButtonBlack/ButtonBlack';
+import { passwordReset } from '../../../../../lib/api/passwordReset';
+import ButtonBlack from '../../Buttons/ButtonBlack/ButtonBlack';
 import FormGroup from '../FormGroup/FormGroup';
+import FormContainer from '../FormContainer/FormContainer';
 
 export default function PasswordReset() {
   const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ export default function PasswordReset() {
     }
   };
   return (
-    <form className={styles.form} onSubmit={requestPasswordReset}>
+    <FormContainer onSubmit={requestPasswordReset}>
       <FormGroup
         type="email"
         value={email}
@@ -33,6 +33,6 @@ export default function PasswordReset() {
         label="Enter your Email"
       />
       <ButtonBlack type={'submit'} buttonText="Request Reset Link" />
-    </form>
+    </FormContainer>
   );
 }
