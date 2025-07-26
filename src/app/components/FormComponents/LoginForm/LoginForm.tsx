@@ -11,6 +11,8 @@ import ButtonWhite from '../../Buttons/ButtonStyles/ButtonWhite/ButtonWhite';
 import React from 'react';
 import FormGroup from '../FormGroup/FormGroup';
 
+import styles from './LoginForm.module.css';
+
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -69,6 +71,9 @@ export default function LoginForm() {
         type={'submit'}
         disabled={loading}
       />{' '}
+      <div className={styles.forgotPassword}>
+        <p>Forgot Password?</p>
+      </div>
       {error && <p style={errorStyles}>Login failed: {error}</p>}
     </FormContainer>
   );
