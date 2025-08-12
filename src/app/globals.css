@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Nohemi";
-  src: url("/public/fonts/Nohemi-VF.ttf");
+  src: url("/fonts/Nohemi-VF.ttf");
 }
 
 :root {
@@ -23,6 +23,11 @@
 
   --main-color: #FAFF00;
   --black: #2f2f2f;
+
+
+  /* beziers */
+
+  --spring-bezier: cubic-bezier(0.175, 0.885, 0.32, 1.075)
 }
 
 
@@ -78,6 +83,10 @@ input:focus {
   outline: 2px solid var(--black);
 }
 
+
+li {
+  list-style-type: none;
+}
 
 
 button {

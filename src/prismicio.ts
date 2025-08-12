@@ -2,9 +2,9 @@ import {
   createClient as baseCreateClient,
   type ClientConfig,
   type Route,
-} from "@prismicio/client";
-import { enableAutoPreviews } from "@prismicio/next";
-import sm from "../slicemachine.config.json";
+} from '@prismicio/client';
+import { enableAutoPreviews } from '@prismicio/next';
+import sm from '../slicemachine.config.json';
 
 /**
  * The project's Prismic repository name.
@@ -19,9 +19,9 @@ export const repositoryName =
  */
 // TODO: Update the routes array to match your project's route structure.
 const routes: Route[] = [
-  // Examples:
-  // { type: "homepage", path: "/" },
-  // { type: "page", path: "/:uid" },
+  { type: 'homepage', path: '/' },
+  { type: 'dashboard', path: '/dashboard' },
+  { type: 'settings', path: '/dashboard/settings' },
 ];
 
 /**
@@ -34,8 +34,8 @@ export const createClient = (config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
     routes,
     fetchOptions:
-      process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+      process.env.NODE_ENV === 'production'
+        ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
         : { next: { revalidate: 5 } },
     ...config,
   });

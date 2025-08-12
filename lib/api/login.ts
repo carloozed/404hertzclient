@@ -18,13 +18,22 @@ export const login = async (
         } as LoginRequest),
       }
     );
+    console.log(
+      'API URL:',
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login/`
+    );
 
     if (!response.ok) {
-      throw new Error('Login failed');
+      // Get the actual error details from the server
+      const errorData = await response.text();
+      console.error('Server response:', errorData);
+      console.error('Status:', response.status);
+      console.error('Headers:', Object.fromEntries(response.headers.entries()));
+
+      throw new Error(`Login failed: ${response.status} - ${errorData}`);
     }
 
     const data: LoginResponse = await response.json();
-
     localStorage.setItem('authToken', data.key);
     return data;
   } catch (error) {

@@ -1,0 +1,15 @@
+.navItem {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    column-gap: 1rem;
+}
+
+.navItem div {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navItem a {
+
+    text-transform: uppercase;
+}
