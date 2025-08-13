@@ -1,6 +1,11 @@
 .navigation {
     position: fixed;
-    top: 2rem;
-    left: 2rem;
-
+    top: 0;
+    left: 0;
+    padding-top: var(--spacing-10);
+    padding-left: var(--spacing-14);
+    padding-right: var(--spacing-14);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

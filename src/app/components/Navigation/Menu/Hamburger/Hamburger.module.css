@@ -1,6 +1,6 @@
 .hamburger {
     height: calc(0.6rem + 0.6vw);
-    width: calc(0.8rem + 0.8vw);
+    width: calc(0.9rem + 0.9vw);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
