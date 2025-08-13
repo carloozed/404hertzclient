@@ -1,13 +1,17 @@
 import { AnalyzeRequest, AnalyzeResponse } from '../types/analyze';
 
-export const analyze = async (url: string): Promise<AnalyzeRequest> => {
+export const analyze = async (url: string): Promise<AnalyzeResponse> => {
   try {
+    // Get auth token from localStorage or wherever you store it
+    const authToken = localStorage.getItem('authToken');
+
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/set/${url}`,
       {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({
           url,
@@ -16,15 +20,13 @@ export const analyze = async (url: string): Promise<AnalyzeRequest> => {
     );
 
     if (!response.ok) {
-      throw new Error('Login failed');
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data: AnalyzeResponse = await response.json();
-
-    localStorage.setItem('authToken', data.key);
     return data;
   } catch (error) {
-    console.error('Login error:', error);
+    console.error('Analysis error:', error);
     throw error;
   }
 };

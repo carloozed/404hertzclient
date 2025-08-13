@@ -4,23 +4,43 @@ import React, { useState } from 'react';
 
 import { analyze } from '../../../../../lib/api/analyze';
 import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
-import styles from './AnalyzeField.module.css'; // Adjust the path as needed
+import styles from './AnalyzeField.module.css';
 
 export default function AnalyzeField() {
   const [url, setUrl] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const analyzeMix = async () => {
+  const analyzeMix = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
     try {
-      await analyze(url);
+      const data = await analyze(url);
+      console.log('Analysis results:', data);
     } catch (err) {
-      console.error('Login error:', err);
+      console.error('AnalyzeError:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={analyzeMix} className={styles.form}>
-      <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-      <ButtonBlack hasImage={false} buttonText="Analyze" type="submit" />
-    </form>
+    <div>
+      <form onSubmit={analyzeMix} className={styles.form}>
+        <input
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder="Enter URL to analyze"
+          disabled={loading}
+        />
+        <ButtonBlack
+          hasImage={false}
+          buttonText={loading ? 'Analyzing...' : 'Analyze'}
+          type="submit"
+          disabled={loading}
+        />
+      </form>
+    </div>
   );
 }
