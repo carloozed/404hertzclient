@@ -1,21 +1,19 @@
-import { AnalyzeRequest, AnalyzeResponse } from '../types/analyze';
+import { AnalyzeResponse } from '../types/analyze';
 
 export const analyze = async (url: string): Promise<AnalyzeResponse> => {
   try {
-    // Get auth token from localStorage or wherever you store it
     const authToken = localStorage.getItem('authToken');
 
+    const encodedUrl = encodeURIComponent(url);
+
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/set/${url}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/set/${encodedUrl}`,
       {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${authToken}`,
         },
-        body: JSON.stringify({
-          url,
-        } as AnalyzeRequest),
       }
     );
 

@@ -219,11 +219,11 @@ li {
 button {
   background-color: transparent;
   transition: transform 0.2s ease-in-out;
+  border: none;
+
 }
 
-button:hover {
-  transform: scale(1.025);
-}
+
 
 @media (prefers-color-scheme: dark) {
   html {

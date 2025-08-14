@@ -5,10 +5,12 @@ import React, { useState } from 'react';
 import { analyze } from '../../../../../lib/api/analyze';
 import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import styles from './AnalyzeField.module.css';
+import { AnalyzeResponse } from '../../../../../lib/types/analyze';
 
 export default function AnalyzeField() {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState<AnalyzeResponse | null>(null);
 
   const analyzeMix = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ export default function AnalyzeField() {
     try {
       const data = await analyze(url);
       console.log('Analysis results:', data);
+      setResponse(data);
     } catch (err) {
       console.error('AnalyzeError:', err);
     } finally {
@@ -41,6 +44,14 @@ export default function AnalyzeField() {
           disabled={loading}
         />
       </form>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {response &&
+          response.tracks.map((track, index) => (
+            <a target="_blank" key={index} href={track.youtube}>
+              {track.title}
+            </a>
+          ))}
+      </div>
     </div>
   );
 }

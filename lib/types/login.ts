@@ -5,5 +5,5 @@ export interface LoginRequest {
 }
 
 export interface LoginResponse {
-  key: string;
+  access_token: string;
 }

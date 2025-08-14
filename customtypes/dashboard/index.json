@@ -1,14 +1,33 @@
 {
   "format": "page",
   "id": "dashboard",
+  "label": "Dashboard",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
+      "sidebar": {
+        "type": "Group",
+        "config": {
+          "label": "Sidebar",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
       "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +57,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Dashboard",
-  "repeatable": false,
-  "status": true
+  }
 }

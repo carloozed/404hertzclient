@@ -69,12 +69,38 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Item in *Dashboard → Sidebar*
+ */
+export interface DashboardDocumentDataSidebarItem {
+  /**
+   * Label field in *Dashboard → Sidebar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dashboard.sidebar[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
 type DashboardDocumentDataSlicesSlice = never;
 
 /**
  * Content for Dashboard documents
  */
 interface DashboardDocumentData {
+  /**
+   * Sidebar field in *Dashboard*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dashboard.sidebar[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  sidebar: prismic.GroupField<Simplify<DashboardDocumentDataSidebarItem>>;
+
   /**
    * Slice Zone field in *Dashboard*
    *
@@ -440,6 +466,7 @@ declare module "@prismicio/client" {
     export type {
       DashboardDocument,
       DashboardDocumentData,
+      DashboardDocumentDataSidebarItem,
       DashboardDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
