@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { login } from '../../../../../lib/api/login';
 
+import { useUserStore } from '../../../../../stores/UserStore';
+
 // component imports
 import FormContainer from '../FormContainer/FormContainer';
 import ButtonWhite from '../../Buttons/ButtonStyles/ButtonWhite/ButtonWhite';
@@ -20,6 +22,8 @@ export default function LoginForm() {
   const [error, setError] = useState('');
   const router = useRouter();
 
+  const { setUser, setLoading: setUserLoading } = useUserStore();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -28,12 +32,22 @@ export default function LoginForm() {
     try {
       await login(email, password);
 
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        try {
+          const parsedData = JSON.parse(userData);
+          setUser(Array.isArray(parsedData) ? parsedData[0] : parsedData);
+        } catch (error) {
+          console.error('Error parsing user data:', error);
+          setUser(null);
+        }
+      }
       router.push('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
       console.error('Login error:', err);
     } finally {
-      setLoading(false);
+      setUserLoading(false);
     }
   };
 

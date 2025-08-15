@@ -19,9 +19,14 @@ type NavbarProps = {
   navbar: NavigationDocument;
   isOpen?: boolean;
   toggle?: () => void;
+  isSocialbarVisible?: boolean;
 };
 
-export default function Navbar({ navbar, toggle }: NavbarProps) {
+export default function Navbar({
+  navbar,
+  toggle,
+  isSocialbarVisible = true,
+}: NavbarProps) {
   const pathname = usePathname();
 
   return (
@@ -30,9 +35,9 @@ export default function Navbar({ navbar, toggle }: NavbarProps) {
         {navbar.data.items.map((item, index) => (
           <FadeIn
             key={index}
-            delay={index * 0.08}
+            delay={index * 0.05}
             duration={0.25}
-            ease="var(--bezier)"
+            ease="var(--spring-bezier)"
           >
             <li className={styles.navItem} onClick={toggle}>
               <div
@@ -45,22 +50,24 @@ export default function Navbar({ navbar, toggle }: NavbarProps) {
           </FadeIn>
         ))}
       </ul>
-      <div className={styles.iconContainer}>
-        {navbar.data.socials_links.map((item, index) => (
-          <FadeIn
-            key={index}
-            delay={navbar.data.items.length * 0.12 + index / 12}
-            duration={0.25}
-            ease="var(--bezier)"
-          >
-            <div>
-              <PrismicNextLink field={item.link}>
-                <PrismicNextImage field={item.icon} />
-              </PrismicNextLink>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
+      {isSocialbarVisible && (
+        <div className={styles.iconContainer}>
+          {navbar.data.socials_links.map((item, index) => (
+            <FadeIn
+              key={index}
+              delay={0.3}
+              duration={0.25}
+              ease="var(--spring-bezier)"
+            >
+              <div>
+                <PrismicNextLink field={item.link}>
+                  <PrismicNextImage field={item.icon} />
+                </PrismicNextLink>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

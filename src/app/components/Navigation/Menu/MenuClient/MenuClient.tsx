@@ -29,11 +29,9 @@ export default function MenuClient({ navbar }: NavigationClientProps) {
   return (
     <nav className={styles.navigation}>
       <div>
-        {' '}
         <Hamburger {...HamburgerProps} />
-        {isNavigationOpen && <Navbar {...NavigationProps} />}
       </div>
-
+      {isNavigationOpen && <Navbar {...NavigationProps} />}
       <Logo hasLink={true} height={36} />
     </nav>
   );

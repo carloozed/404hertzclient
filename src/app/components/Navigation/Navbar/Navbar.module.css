@@ -1,8 +1,8 @@
 .container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    column-gap: var(--spacing-20);
+    display: flex;
+    column-gap: var(--spacing-24);
     background-color: var(--main-color);
+    pointer-events: all;
 }
 
 .container *::selection {
@@ -12,28 +12,29 @@
 
 .navbar {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-5);
-    padding-top: var(--spacing-10);
+    align-items: center;
+    gap: var(--spacing-20);
 }
 
 
 .navItem {
     display: flex;
+
+}
+
+.navItem * {
+    font-size: var(--text-sm)
 }
 
 .index {
     font-weight: bold;
     text-transform: uppercase;
-    width: var(--spacing-12);
+    width: var(--spacing-8);
     transform-origin: left center;
-
+    transition: transform 0.2s var(--spring-bezier);
 }
 
-.navItem:hover .index,
-.active {
-    transform: scale(1.2);
-}
+
 
 .active {}
 
@@ -43,7 +44,7 @@
 
 .iconContainer {
     display: flex;
-    gap: var(--spacing-5);
+    gap: var(--spacing-8);
     align-items: flex-end;
     justify-content: flex-end;
 }

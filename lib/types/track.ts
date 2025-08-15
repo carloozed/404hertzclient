@@ -1,18 +1,19 @@
-import { RecordedAt } from './recordedAt';
-
 export interface Track {
   id: number;
   title: string;
   author: string;
-  genre: string;
-  label: string;
+  label: string | null;
+  genre: string | null;
   album_cover: string;
-  recorded_at: RecordedAt;
-  youtube?: string | undefined;
-  spotify?: string | undefined;
-  deezer?: string | undefined;
-  beatport?: string | undefined;
-  discogs?: string | undefined;
-  bandcamp?: string | undefined;
-  apple?: string | undefined;
+  apple: string | null;
+  deezer: string | null;
+  spotify: string | null;
+  youtube: string | null;
+  bandcamp: string | null;
+  beatport: string | null;
+  discogs: string | null;
+  created_at: string;
+  updated_at: string;
+  user: number;
+  set: number[];
 }

@@ -1,10 +1,14 @@
+import { Track } from './track';
+import { Set } from './set';
+
 export interface User {
-  id: string;
-  name: string;
+  id: number;
   email: string;
-  role: "user" | "admin";
-  createdAt: string;
+  first_name: string;
+  last_name: string;
+  avatar: string | null;
+  tracks: Track[];
+  sets: Set[];
 }
 
-export type CreateUserDto = Omit<User, "id" | "createdAt">;
-export type UpdateUserDto = Partial<CreateUserDto>;
+export type UserResponse = User[];

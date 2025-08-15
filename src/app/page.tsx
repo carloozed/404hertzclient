@@ -1,16 +1,21 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { asImageSrc } from '@prismicio/client';
-import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
-import { components } from '@/slices';
+import LoginForm from './components/FormComponents/LoginForm/LoginForm';
+import AnalyzeField from './components/FormComponents/AnalyzeField/AnalyzeField';
 
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('homepage').catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <div style={{ marginTop: '5rem', width: '24rem' }}>
+      <LoginForm />
+      <AnalyzeField />
+    </div>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {

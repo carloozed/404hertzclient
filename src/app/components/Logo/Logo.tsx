@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
@@ -26,10 +28,16 @@ export default function Logo({
     <div>
       {hasLink ? (
         <Link href="/" onClick={onClick} className={className}>
-          <Image src={LogoSrc} alt={alt} height={height} width={width} />
+          <Image
+            src={LogoSrc}
+            alt={alt}
+            height={height}
+            width={width}
+            priority
+          />
         </Link>
       ) : (
-        <Image src={LogoSrc} alt={alt} height={height} width={width} />
+        <Image src={LogoSrc} alt={alt} height={height} width={width} priority />
       )}
     </div>
   );
