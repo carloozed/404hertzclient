@@ -5,6 +5,11 @@
     padding-left: 0;
 }
 
+.albumCover img {
+    height: var(--spacing-24);
+    width: var(--spacing-24);
+}
+
 .trackDetails {
     display: flex;
     flex-direction: column;

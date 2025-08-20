@@ -18,8 +18,10 @@ export default function ListContainer({ user }: ListContainerProps) {
   const getLogoUrl = useLogoSwitcher();
   return (
     <div className={styles.rightContainer}>
-      <div className={styles.scannedMixesNames}>
+      <div className={styles.titleContainer}>
         <TitleContainer title="Last Scanned" />
+      </div>
+      <div className={styles.scannedMixesNames}>
         <div className={styles.linksContainer}>
           {user?.sets.map((set, index) => (
             <div key={index} className={styles.scannedMix}>

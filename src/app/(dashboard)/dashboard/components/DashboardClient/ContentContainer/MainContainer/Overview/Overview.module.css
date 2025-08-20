@@ -1,14 +1,10 @@
 .container {
     height: 100%;
     width: 100%;
-    border: 1px solid black;
     display: grid;
     grid-template-rows: 0.95fr 1.05fr;
     padding: var(--spacing-2)
 }
-
-
-.container div h4 {}
 
 .upperContainer,
 .lowerContainer {

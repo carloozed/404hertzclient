@@ -22,7 +22,7 @@ export default function LoginForm() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const { setUser, setLoading: setUserLoading, user } = useUserStore();
+  const { setUser, setLoading: setUserLoading } = useUserStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,41 +60,37 @@ export default function LoginForm() {
 
   return (
     <>
-      {user ? (
-        <p>Logged in as: {user?.email}</p>
-      ) : (
-        <FormContainer onSubmit={handleSubmit}>
-          <FormGroup
-            id="email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            disabled={loading}
-            label="Email"
-          />
-          <FormGroup
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            disabled={loading}
-            label="Password"
-          />
-          <ButtonWhite
-            buttonText={loading ? 'Logging In' : 'Log In'}
-            type={'submit'}
-            disabled={loading}
-          />{' '}
-          <div className={styles.forgotPassword}>
-            <p>Forgot Password?</p>
-          </div>
-          {error && <p style={errorStyles}>Login failed: {error}</p>}
-        </FormContainer>
-      )}
+      <FormContainer onSubmit={handleSubmit}>
+        <FormGroup
+          id="email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          disabled={loading}
+          label="Email"
+        />
+        <FormGroup
+          id="password"
+          name="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          disabled={loading}
+          label="Password"
+        />
+        <ButtonWhite
+          buttonText={loading ? 'Logging In' : 'Log In'}
+          type={'submit'}
+          disabled={loading}
+        />{' '}
+        <div className={styles.forgotPassword}>
+          <p>Forgot Password?</p>
+        </div>
+        {error && <p style={errorStyles}>Login failed: {error}</p>}
+      </FormContainer>
     </>
   );
 }

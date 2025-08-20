@@ -30,8 +30,6 @@ export default function DashboardClient({
     page.data.sidebar[0]?.label?.toLowerCase() || ''
   );
 
-  console.log(user);
-
   const sharedProps = { page, selectedItem };
   const SidebarProps = { setSelectedItem, ...sharedProps };
   const ContentContainerProps = {

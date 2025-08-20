@@ -40,7 +40,9 @@ export default function DashboardMainContainer({
   return (
     <div className={styles.container}>
       <UserInformation {...userInformationProps} />
-      {selectedItem === 'account overview' && <Overview {...overviewProps} />}
+      <div className={styles.overviewContainer}>
+        {selectedItem === 'account overview' && <Overview {...overviewProps} />}
+      </div>
     </div>
   );
 }

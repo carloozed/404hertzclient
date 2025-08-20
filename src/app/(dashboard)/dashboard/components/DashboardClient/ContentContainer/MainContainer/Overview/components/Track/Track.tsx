@@ -23,8 +23,8 @@ export default function TrackComponent({ track, index }: TrackProps) {
         <Image
           src={track.album_cover}
           alt={track.title}
-          width={100}
-          height={100}
+          width={1000}
+          height={1000}
         />
       </div>
       <div className={styles.trackDetails}>
