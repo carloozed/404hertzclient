@@ -1,0 +1,28 @@
+.container {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 0.95fr 1.05fr;
+    padding: var(--spacing-2)
+}
+
+
+.container div h4 {}
+
+.upperContainer,
+.lowerContainer {
+    height: 100%;
+}
+
+.upperContainer {
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: var(--spacing-2)
+}
+
+.leftContainer,
+.rightContainer {
+    width: 100%;
+}

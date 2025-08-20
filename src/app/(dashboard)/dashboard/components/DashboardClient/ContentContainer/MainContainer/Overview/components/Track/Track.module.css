@@ -1,0 +1,38 @@
+.track {
+    display: flex;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+    padding-left: 0;
+}
+
+.trackDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    justify-content: center;
+}
+
+.trackInfo {
+    display: flex;
+    gap: var(--spacing-1);
+
+}
+
+.trackInfo * {
+    font-weight: 400;
+    font-size: var(--text-sm)
+}
+
+.trackInfo strong {
+    font-weight: 600;
+}
+
+.buylinks {
+    display: flex;
+    gap: var(--spacing-3)
+}
+
+.buylinks img {
+    height: var(--spacing-5);
+    width: var(--spacing-5);
+}

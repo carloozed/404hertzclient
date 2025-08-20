@@ -1,0 +1,38 @@
+.avatarContainer {
+    height: fit-content;
+    padding-bottom: var(--spacing-3);
+    border-bottom: 1px solid black;
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+.avatarImageContainer {
+    height: calc(3.5rem + 3.5vw);
+    width: calc(3.5rem + 3.5vw);
+    background-color: white;
+    border: 1px solid black;
+    padding: var(--spacing-1);
+}
+
+.avatarContainer img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.replaceIconContainer {
+    border: 1px solid black;
+    height: fit-content;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-1);
+    background-color: white;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.replaceIconContainer img {
+    height: calc(0.5rem + 0.5vw);
+}

@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
+    column-gap: var(--spacing-3);
+    width: 90%;
+    height: 88%;
+}

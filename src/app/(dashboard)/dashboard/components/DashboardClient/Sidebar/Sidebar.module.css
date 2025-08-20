@@ -52,9 +52,9 @@
 }
 
 .active:hover::after {
-    width: 2%;
+    width: 3%;
 }
 
 .active::after {
-    width: 2%;
+    width: 3%;
 }

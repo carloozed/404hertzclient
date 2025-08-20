@@ -370,6 +370,82 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
+type ReplaceIconDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Replace Icon documents
+ */
+interface ReplaceIconDocumentData {
+  /**
+   * Replace Icon field in *Replace Icon*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: replace_icon.replace_icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  replace_icon: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Replace Icon*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: replace_icon.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ReplaceIconDocumentDataSlicesSlice> /**
+   * Meta Title field in *Replace Icon*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: replace_icon.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Replace Icon*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: replace_icon.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Replace Icon*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: replace_icon.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Replace Icon document from Prismic
+ *
+ * - **API ID**: `replace_icon`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ReplaceIconDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ReplaceIconDocumentData>,
+    "replace_icon",
+    Lang
+  >;
+
 type SettingsDocumentDataSlicesSlice = never;
 
 /**
@@ -435,13 +511,124 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Social Icons documents
+ */
+interface SocialIconsDocumentData {
+  /**
+   * Icon field in *Social Icons*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_icons.icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Social Icons document from Prismic
+ *
+ * - **API ID**: `social_icons`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SocialIconsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SocialIconsDocumentData>,
+    "social_icons",
+    Lang
+  >;
+
+type UserAvatarDocumentDataSlicesSlice = never;
+
+/**
+ * Content for User Avatar documents
+ */
+interface UserAvatarDocumentData {
+  /**
+   * User Avatar field in *User Avatar*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: user_avatar.user_avatar
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  user_avatar: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *User Avatar*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: user_avatar.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<UserAvatarDocumentDataSlicesSlice> /**
+   * Meta Title field in *User Avatar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: user_avatar.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *User Avatar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: user_avatar.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *User Avatar*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: user_avatar.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * User Avatar document from Prismic
+ *
+ * - **API ID**: `user_avatar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type UserAvatarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<UserAvatarDocumentData>,
+    "user_avatar",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | DashboardDocument
   | HomepageDocument
   | LoginButtonDocument
   | LogoDocument
   | NavigationDocument
-  | SettingsDocument;
+  | ReplaceIconDocument
+  | SettingsDocument
+  | SocialIconsDocument
+  | UserAvatarDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -479,9 +666,17 @@ declare module "@prismicio/client" {
       NavigationDocumentData,
       NavigationDocumentDataItemsItem,
       NavigationDocumentDataSocialsLinksItem,
+      ReplaceIconDocument,
+      ReplaceIconDocumentData,
+      ReplaceIconDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataSlicesSlice,
+      SocialIconsDocument,
+      SocialIconsDocumentData,
+      UserAvatarDocument,
+      UserAvatarDocumentData,
+      UserAvatarDocumentDataSlicesSlice,
       AllDocumentTypes,
     };
   }

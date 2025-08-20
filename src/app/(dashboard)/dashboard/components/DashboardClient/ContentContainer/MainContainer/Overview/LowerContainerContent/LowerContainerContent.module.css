@@ -1,0 +1,19 @@
+.container {
+    padding-top: var(--spacing-2)
+}
+
+.tracksContainer {
+    padding-top: var(--spacing-4);
+    overflow: hidden;
+}
+
+.tracksList {
+    height: calc(8rem + 26vh - var(--spacing-4));
+    overflow-y: scroll;
+}
+
+.tracks {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

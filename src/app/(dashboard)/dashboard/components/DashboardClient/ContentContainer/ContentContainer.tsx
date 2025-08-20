@@ -1,9 +1,13 @@
 import React from 'react';
 
-import LogoutUser from '@/app/components/FormComponents/LogoutUser/LogoutUser';
-
 import styles from './ContentContainer.module.css';
-import { DashboardDocument } from '../../../../../../../prismicio-types';
+import {
+  DashboardDocument,
+  ReplaceIconDocument,
+  UserAvatarDocument,
+} from '../../../../../../../prismicio-types';
+
+import DashboardMainContainer from './MainContainer/DashboardMainContainer';
 
 import { User } from '../../../../../../../lib/types/user';
 
@@ -11,17 +15,28 @@ type ContentContainerProps = {
   page?: DashboardDocument;
   selectedItem?: string;
   user: User | null;
+  userAvatar: UserAvatarDocument | null;
+  replaceIcon: ReplaceIconDocument | null;
 };
 
-export default function ContentContainer({ user }: ContentContainerProps) {
+export default function ContentContainer({
+  user,
+  selectedItem,
+  userAvatar,
+  replaceIcon,
+}: ContentContainerProps) {
   console.log(user && user);
+
+  const mainContainerProps = {
+    user,
+    selectedItem,
+    userAvatar,
+    replaceIcon,
+  };
 
   return (
     <div className={styles.contentContainer}>
-      <LogoutUser />
-      {user && user.email}
-      {user &&
-        user.sets.map((set, index) => <div key={index}>{set.title}</div>)}
+      <DashboardMainContainer {...mainContainerProps} />
     </div>
   );
 }
