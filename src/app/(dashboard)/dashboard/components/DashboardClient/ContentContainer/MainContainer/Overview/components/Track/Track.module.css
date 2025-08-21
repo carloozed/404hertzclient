@@ -3,6 +3,7 @@
     gap: var(--spacing-3);
     padding: var(--spacing-3);
     padding-left: 0;
+    height: fit-content;
 }
 
 .albumCover img {

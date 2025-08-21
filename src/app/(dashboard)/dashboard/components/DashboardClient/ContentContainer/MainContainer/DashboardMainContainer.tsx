@@ -48,7 +48,7 @@ export default function DashboardMainContainer({
       <div className={styles.overviewContainer}>
         {selectedItem === 'account overview' ? (
           <Overview {...overviewProps} />
-        ) : selectedItem === 'scanned mixes' ? (
+        ) : selectedItem === 'scanned sets' ? (
           <ScannedMixes {...scannedMixesProps} />
         ) : null}
       </div>

@@ -1,9 +1,27 @@
 .container {
     padding: var(--spacing-2);
     height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .setsContainer {
     max-height: calc(23rem + 40vh);
+    overflow: scroll;
+}
+
+.tracksContainer {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(0%);
+    left: 0;
+    background-color: var(--main-color);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid black;
+    padding: var(--spacing-2);
+    transition: transform 0.8s var(--spring-bezier);
+    max-height: 20rem;
     overflow: scroll;
 }

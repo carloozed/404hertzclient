@@ -1,20 +1,18 @@
 import React from 'react';
-
 import styles from './SetComponent.module.css';
-
 import Image from 'next/image';
-
 import { truncateText } from '../../../../../../../../../../../lib/helpers/truncateText';
-
 import { Set } from '../../../../../../../../../../../lib/types/set';
-
 import { useLogoSwitcher } from '../../../../../../../../../../../lib/helpers/logoSwitcher';
 
-type SetProps = Set;
+type SetProps = Set & {
+  selectedSet: number | null;
+  setSelectedSet: (id: number | null) => void;
+};
 
-export default function SetComponent({ ...set }: SetProps) {
+export default function SetComponent({ setSelectedSet, ...set }: SetProps) {
   const getLogoUrl = useLogoSwitcher();
-  console.log(set);
+
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
@@ -29,7 +27,7 @@ export default function SetComponent({ ...set }: SetProps) {
         <div className={styles.infoContainer}>
           <div>
             <div className={styles.titleContainer}>
-              <h4>{truncateText(set.title, 30)}</h4>
+              <h4>{truncateText(set.title, 36)}</h4>
             </div>
             <h5>{set && set.author}</h5>
           </div>
@@ -53,7 +51,12 @@ export default function SetComponent({ ...set }: SetProps) {
           />
         </div>
       </div>
-      <div></div>
+      <div
+        className={styles.indicatorContainer}
+        onClick={() => setSelectedSet(set.id)}
+      >
+        <div className={styles.indicator}></div>
+      </div>
     </div>
   );
 }

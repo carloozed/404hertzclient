@@ -1,7 +1,7 @@
 .container {
     display: grid;
     padding: var(--spacing-2);
-    grid-template-columns: 1fr 1fr 0.1fr;
+    grid-template-columns: 1.25fr 1fr 0.1fr;
     border-bottom: 1px solid black;
 }
 
@@ -29,15 +29,12 @@
     height: 100px;
     width: 100px;
     border: 1px solid black;
-    padding: calc(var(--spacing-1) / 4);
-    border-radius: 50%;
     overflow: hidden;
 }
 
 .setImageContainer img {
     height: 100%;
     width: 100%;
-    border-radius: 50%;
 }
 
 .titleContainer {
@@ -83,4 +80,20 @@
 
 .imageContainer img {
     opacity: 0.2;
+}
+
+.indicatorContainer {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicator {
+    height: var(--spacing-3);
+    width: var(--spacing-3);
+    border: 1px solid black;
+    transform: rotate(45deg);
+    border-left: 0;
+    border-top: 0;
 }
