@@ -1,0 +1,9 @@
+.container {
+    padding: var(--spacing-2);
+    height: 100%;
+}
+
+.setsContainer {
+    max-height: calc(23rem + 40vh);
+    overflow: scroll;
+}

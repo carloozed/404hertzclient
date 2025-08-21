@@ -23,7 +23,7 @@ export default function StatsContainer({ user }: StatsContainerProps) {
           <TitleContainer title="Tokens Left" />
 
           <h2>
-            <CountUp end={256} duration={4} />
+            <CountUp end={111} duration={3} />
           </h2>
         </div>
       </div>{' '}

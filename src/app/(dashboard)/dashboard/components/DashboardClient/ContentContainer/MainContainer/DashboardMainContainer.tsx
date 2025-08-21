@@ -9,6 +9,7 @@ import {
   ReplaceIconDocument,
   UserAvatarDocument,
 } from '../../../../../../../../prismicio-types';
+import ScannedMixes from './ScannedMixes/ScannedMixes';
 
 type MainContainerProps = {
   user: User | null;
@@ -37,11 +38,19 @@ export default function DashboardMainContainer({
     selectedItem,
   };
 
+  const scannedMixesProps = {
+    ...sharedProps,
+  };
+
   return (
     <div className={styles.container}>
       <UserInformation {...userInformationProps} />
       <div className={styles.overviewContainer}>
-        {selectedItem === 'account overview' && <Overview {...overviewProps} />}
+        {selectedItem === 'account overview' ? (
+          <Overview {...overviewProps} />
+        ) : selectedItem === 'scanned mixes' ? (
+          <ScannedMixes {...scannedMixesProps} />
+        ) : null}
       </div>
     </div>
   );
