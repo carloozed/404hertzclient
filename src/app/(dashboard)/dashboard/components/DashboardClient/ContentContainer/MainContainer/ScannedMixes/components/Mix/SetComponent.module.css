@@ -7,9 +7,6 @@
 
 
 
-.container:hover .setImageContainer img {
-    mix-blend-mode: difference;
-}
 
 .leftContainer {
     display: flex;
@@ -54,7 +51,6 @@
     font-weight: 500;
 }
 
-.sourceLogoContainer {}
 
 .sourceLogoContainer img {
 
