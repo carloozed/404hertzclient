@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { User } from '../../../../../../../../../lib/types/user';
-import { Track } from '../../../../../../../../../lib/types/track';
 
 import styles from './ScannedMixes.module.css';
 import SetComponent from './components/Mix/SetComponent';
@@ -14,46 +13,61 @@ type ScannedMixesProps = {
 
 export default function ScannedMixes({ user }: ScannedMixesProps) {
   const [selectedSet, setSelectedSet] = useState<number | null>(null);
-  const [tracklist, setTracklist] = useState<Track[]>([]);
-  const sets = user && user.sets;
-  const tracks = user && user?.tracks;
-
-  console.log(tracks);
-
-  useEffect(() => {
-    if (selectedSet !== null && tracks) {
-      const selectedTracks = tracks.filter(
-        (track) => track.set[0] === selectedSet
-      );
-      setTracklist(selectedTracks);
-    } else {
-      setTracklist([]);
-    }
-  }, [selectedSet, tracks]);
+  const sets = user?.sets;
+  const tracks = user?.tracks;
 
   return (
     <div className={styles.container}>
       <div className={styles.setsContainer}>
-        {sets ? (
-          sets.map((set) => (
-            <SetComponent
-              key={set.id}
-              {...set}
-              selectedSet={selectedSet}
-              setSelectedSet={setSelectedSet}
-            />
-          ))
+        {sets && sets.length > 0 ? (
+          sets.map((set) => {
+            const setTracks =
+              tracks?.filter(
+                (track) => track.set[0] === set.id || track.set[0] === set.id
+              ) || [];
+
+            return (
+              <div
+                key={set.id}
+                className={`${styles.setWrapper} ${selectedSet === set.id ? styles.setWrapperOpen : ''}`}
+              >
+                <SetComponent
+                  {...set}
+                  selectedSet={selectedSet}
+                  setSelectedSet={setSelectedSet}
+                />
+
+                <div
+                  className={`${styles.tracksWrapper} ${
+                    selectedSet === set.id ? styles.tracksWrapperOpen : ''
+                  }`}
+                >
+                  <div className={styles.tracksContainer}>
+                    {setTracks.length > 0 ? (
+                      setTracks.map((track, index) => (
+                        <TrackComponent
+                          key={track.id}
+                          index={index}
+                          track={track}
+                        />
+                      ))
+                    ) : (
+                      <div className={styles.noTracks}>
+                        <h4>
+                          This DJ knows how to dig... Unfortunately, no tracks
+                          were found!
+                        </h4>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })
         ) : (
-          <h2>You haven&apos;t scanned any mixes</h2>
-        )}
-      </div>
-      <div className={styles.tracksContainer}>
-        {tracklist.length > 0 ? (
-          tracklist.map((track) => (
-            <TrackComponent index={0} key={track.id} track={track} />
-          ))
-        ) : (
-          <h2>No tracks found</h2>
+          <div className={styles.noSets}>
+            <h2>You haven&apos;t scanned any mixes</h2>
+          </div>
         )}
       </div>
     </div>

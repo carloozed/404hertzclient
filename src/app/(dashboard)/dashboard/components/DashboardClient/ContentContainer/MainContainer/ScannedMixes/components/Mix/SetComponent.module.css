@@ -2,7 +2,7 @@
     display: grid;
     padding: var(--spacing-2);
     grid-template-columns: 1.25fr 1fr 0.1fr;
-    border-bottom: 1px solid black;
+
 }
 
 

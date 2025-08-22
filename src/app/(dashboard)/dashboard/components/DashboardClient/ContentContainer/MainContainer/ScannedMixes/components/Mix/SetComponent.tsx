@@ -10,7 +10,11 @@ type SetProps = Set & {
   setSelectedSet: (id: number | null) => void;
 };
 
-export default function SetComponent({ setSelectedSet, ...set }: SetProps) {
+export default function SetComponent({
+  selectedSet,
+  setSelectedSet,
+  ...set
+}: SetProps) {
   const getLogoUrl = useLogoSwitcher();
 
   return (
@@ -53,7 +57,7 @@ export default function SetComponent({ setSelectedSet, ...set }: SetProps) {
       </div>
       <div
         className={styles.indicatorContainer}
-        onClick={() => setSelectedSet(set.id)}
+        onClick={() => setSelectedSet(selectedSet === set.id ? null : set.id)}
       >
         <div className={styles.indicator}></div>
       </div>
