@@ -3,13 +3,13 @@ import React from 'react';
 import { User } from '../../../../../../../../lib/types/user';
 
 import styles from './DashboardMainContainer.module.css';
-import UserInformation from './UserInformation/UserInformation';
 import Overview from './Overview/Overview';
 import {
   ReplaceIconDocument,
   UserAvatarDocument,
 } from '../../../../../../../../prismicio-types';
 import ScannedMixes from './ScannedMixes/ScannedMixes';
+import DashboardSideContainer from './DashboardSideContainer/DashboardSideContainer';
 
 type MainContainerProps = {
   user: User | null;
@@ -27,10 +27,11 @@ export default function DashboardMainContainer({
     user,
   };
 
-  const userInformationProps = {
+  const sideContainerProps = {
     ...sharedProps,
     userAvatar,
     replaceIcon,
+    selectedItem,
   };
 
   const overviewProps = {
@@ -44,7 +45,7 @@ export default function DashboardMainContainer({
 
   return (
     <div className={styles.container}>
-      <UserInformation {...userInformationProps} />
+      <DashboardSideContainer {...sideContainerProps} />
       <div className={styles.overviewContainer}>
         {selectedItem === 'account overview' ? (
           <Overview {...overviewProps} />
