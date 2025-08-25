@@ -16,6 +16,8 @@ type ListContainerProps = {
 
 export default function ListContainer({ user }: ListContainerProps) {
   const getLogoUrl = useLogoSwitcher();
+
+  console.log(user?.sets);
   return (
     <div className={styles.rightContainer}>
       <div className={styles.titleContainer}>

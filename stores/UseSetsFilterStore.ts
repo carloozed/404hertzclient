@@ -8,6 +8,8 @@ interface FilterStore {
   toggleGenre: (genre: string) => void;
   toggleChannel: (channel: string) => void;
   clearFilters: () => void;
+  clearGenres: () => void;
+  clearChannels: () => void;
   getFilteredSets: (sets: Set[]) => Set[];
 }
 
@@ -32,6 +34,16 @@ const useFilterStore = create<FilterStore>((set, get) => ({
   clearFilters: () =>
     set({
       selectedGenres: [],
+      selectedChannels: [],
+    }),
+
+  clearGenres: () =>
+    set({
+      selectedGenres: [],
+    }),
+
+  clearChannels: () =>
+    set({
       selectedChannels: [],
     }),
 

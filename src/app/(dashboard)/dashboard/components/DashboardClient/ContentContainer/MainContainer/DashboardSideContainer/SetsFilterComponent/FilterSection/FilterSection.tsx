@@ -10,18 +10,23 @@ export default function FilterSection({
   selectedItems,
   onToggle,
   truncate = false,
+
+  cleanFilters,
 }: {
   title: string;
   items: string[];
   selectedItems: string[];
   onToggle: (item: string) => void;
   truncate?: boolean;
+  cleanFilters?: () => void;
 }) {
   return (
     <FilterContainer>
       <div className={styles.titleContainer}>
-        <h4>{title}:</h4>
-        <h5>{'Remove Filters'}</h5>
+        <h4>{title}:</h4>{' '}
+        <div>
+          <button onClick={cleanFilters}>Remove Filter</button>
+        </div>
       </div>
       <div className={styles.setsContainer}>
         {items

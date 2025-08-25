@@ -18,8 +18,14 @@ const getUniqueValues = (items: (string | null | undefined)[]): string[] =>
   );
 
 export default function SetsFilterComponent({ user }: SetsFilterProps) {
-  const { selectedGenres, selectedChannels, toggleGenre, toggleChannel } =
-    useFilterStore();
+  const {
+    selectedGenres,
+    selectedChannels,
+    toggleGenre,
+    toggleChannel,
+    clearGenres,
+    clearChannels,
+  } = useFilterStore();
 
   // Memoize the unique arrays to avoid recalculation on every render
   const { uniqueGenres, uniqueChannels } = useMemo(() => {
@@ -40,6 +46,8 @@ export default function SetsFilterComponent({ user }: SetsFilterProps) {
         items={uniqueGenres}
         selectedItems={selectedGenres}
         onToggle={toggleGenre}
+        truncate={true}
+        cleanFilters={clearGenres}
       />
       <FilterSection
         title="Filter by channel"
@@ -47,6 +55,7 @@ export default function SetsFilterComponent({ user }: SetsFilterProps) {
         selectedItems={selectedChannels}
         onToggle={toggleChannel}
         truncate={true}
+        cleanFilters={clearChannels}
       />
     </div>
   );
