@@ -1,0 +1,46 @@
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-2)
+}
+
+.titleContainer h4 {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.titleContainer h5 {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: var(--text-xs)
+}
+
+.setsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--spacing-2);
+}
+
+.genre {
+    display: flex;
+    width: 100%;
+}
+
+.selected button {
+    background-color: white;
+}
+
+.genre button {
+    width: 100%;
+    border: 1px solid black;
+    padding: var(--spacing-2);
+    border-radius: 15px;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+}
+
+.genre button:hover {
+    background-color: var(--accent-color)
+}

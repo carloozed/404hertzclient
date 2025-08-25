@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { User } from '../../../../../../../../../lib/types/user';
 
 import styles from './ScannedMixes.module.css';
 import SetComponent from './components/Mix/SetComponent';
 import TrackComponent from '../Overview/components/Track/Track';
+
+import useFilterStore from '../../../../../../../../../stores/UseSetsFilterStore';
 
 type ScannedMixesProps = {
   user: User | null;
@@ -13,14 +15,33 @@ type ScannedMixesProps = {
 
 export default function ScannedMixes({ user }: ScannedMixesProps) {
   const [selectedSet, setSelectedSet] = useState<number | null>(null);
-  const sets = user?.sets;
+
+  const { selectedGenres, selectedChannels } = useFilterStore();
+
   const tracks = user?.tracks;
+
+  // Apply filters to sets using useMemo for performance
+  const filteredSets = useMemo(() => {
+    if (!user?.sets) return [];
+
+    return user.sets.filter((set) => {
+      const genreMatch =
+        selectedGenres.length === 0 ||
+        (set.genre && selectedGenres.includes(set.genre));
+
+      const channelMatch =
+        selectedChannels.length === 0 ||
+        (set.author && selectedChannels.includes(set.author));
+
+      return genreMatch && channelMatch;
+    });
+  }, [user?.sets, selectedGenres, selectedChannels]);
 
   return (
     <div className={styles.container}>
       <div className={styles.setsContainer}>
-        {sets && sets.length > 0 ? (
-          sets.map((set) => {
+        {filteredSets.length > 0 ? (
+          filteredSets.map((set) => {
             const setTracks =
               tracks?.filter(
                 (track) => track.set[0] === set.id || track.set[0] === set.id
@@ -64,6 +85,11 @@ export default function ScannedMixes({ user }: ScannedMixesProps) {
               </div>
             );
           })
+        ) : user?.sets?.length ? (
+          <div className={styles.noFilterResults}>
+            <h2>No sets match your current filters</h2>
+            <p>Try adjusting your genre or channel selections</p>
+          </div>
         ) : (
           <div className={styles.noSets}>
             <h2>You haven&apos;t scanned any mixes</h2>
