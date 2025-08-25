@@ -36,13 +36,13 @@ export default function SetsFilterComponent({ user }: SetsFilterProps) {
   return (
     <div className={styles.container}>
       <FilterSection
-        title="Sort by genre"
+        title="Filter by genre"
         items={uniqueGenres}
         selectedItems={selectedGenres}
         onToggle={toggleGenre}
       />
       <FilterSection
-        title="Sort by channel"
+        title="Filter by channel"
         items={uniqueChannels}
         selectedItems={selectedChannels}
         onToggle={toggleChannel}

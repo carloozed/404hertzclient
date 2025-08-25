@@ -24,15 +24,17 @@ export default function FilterSection({
         <h5>{'Remove Filters'}</h5>
       </div>
       <div className={styles.setsContainer}>
-        {items.map((item) => (
-          <div
-            key={item}
-            className={`${styles.genre} ${selectedItems.includes(item) ? styles.selected : ''}`}
-            onClick={() => onToggle(item)}
-          >
-            <button>{truncate ? truncateText(item, 12) : item}</button>
-          </div>
-        ))}
+        {items
+          .sort((a, b) => a.localeCompare(b))
+          .map((item) => (
+            <div
+              key={item}
+              className={`${styles.genre} ${selectedItems.includes(item) ? styles.selected : ''}`}
+              onClick={() => onToggle(item)}
+            >
+              <button>{truncate ? truncateText(item, 24) : item}</button>
+            </div>
+          ))}
       </div>
     </FilterContainer>
   );

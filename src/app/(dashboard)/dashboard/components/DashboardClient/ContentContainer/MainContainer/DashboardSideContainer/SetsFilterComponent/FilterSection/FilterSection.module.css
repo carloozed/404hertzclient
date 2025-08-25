@@ -18,9 +18,11 @@
 }
 
 .setsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: var(--spacing-2);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(5rem + 5vw);
+    overflow: scroll;
+
 }
 
 .genre {
@@ -34,9 +36,9 @@
 
 .genre button {
     width: 100%;
-    border: 1px solid black;
+    border-top: 1px solid black;
     padding: var(--spacing-2);
-    border-radius: 15px;
+
     font-size: var(--text-xs);
     text-transform: uppercase;
 }
