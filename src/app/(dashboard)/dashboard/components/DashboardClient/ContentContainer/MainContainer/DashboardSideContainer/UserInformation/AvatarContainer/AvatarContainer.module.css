@@ -1,7 +1,7 @@
 .avatarContainer {
     height: fit-content;
     padding-bottom: var(--spacing-3);
-    border-bottom: 1px solid black;
+    border-bottom: var(--border);
     display: flex;
     gap: var(--spacing-3);
 }
@@ -10,7 +10,7 @@
     height: calc(3.5rem + 3.5vw);
     width: calc(3.5rem + 3.5vw);
     background-color: white;
-    border: 1px solid black;
+    border: var(--border);
     padding: var(--spacing-1);
 }
 
@@ -21,7 +21,7 @@
 
 
 .replaceIconContainer {
-    border: 1px solid black;
+    border: var(--border);
     height: fit-content;
     width: 4rem;
     display: flex;

@@ -12,7 +12,7 @@
 }
 
 .upperContainer {
-    border-bottom: 1px solid black;
+    border-bottom: var(--border);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: var(--spacing-2)

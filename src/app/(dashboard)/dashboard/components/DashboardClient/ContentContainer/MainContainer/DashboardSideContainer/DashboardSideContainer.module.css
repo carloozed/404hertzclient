@@ -2,5 +2,5 @@
     height: 100%;
     width: 100%;
     padding: var(--spacing-3);
-    border: 1px solid black;
+    border: var(--border);
 }

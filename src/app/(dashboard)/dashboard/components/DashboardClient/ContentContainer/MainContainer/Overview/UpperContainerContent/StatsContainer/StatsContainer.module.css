@@ -1,5 +1,5 @@
 .leftContainer {
-    border-right: 1px solid black;
+    border-right: var(--border);
     padding-right: var(--spacing-2);
     width: 100%;
 }

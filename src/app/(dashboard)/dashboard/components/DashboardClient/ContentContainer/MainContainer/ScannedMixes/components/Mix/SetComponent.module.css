@@ -25,7 +25,7 @@
 .setImageContainer {
     height: 100px;
     width: 100px;
-    border: 1px solid black;
+    border: var(--border);
     overflow: hidden;
 }
 
@@ -61,7 +61,7 @@
 .infoContainer p {
     font-size: var(--text-sm);
     margin-top: var(--spacing-2);
-    border: 1px solid black;
+    border: var(--border);
     padding: var(--spacing-1);
     border-radius: 10px
 }
@@ -88,7 +88,7 @@
 .indicator {
     height: var(--spacing-3);
     width: var(--spacing-3);
-    border: 1px solid black;
+    border: var(--border);
     transform: rotate(45deg);
     border-left: 0;
     border-top: 0;
