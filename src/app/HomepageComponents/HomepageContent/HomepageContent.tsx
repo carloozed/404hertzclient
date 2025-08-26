@@ -21,9 +21,11 @@ export default function HomepageContent({ page }: HomepageContentProps) {
         <div className={styles.catchphrase}>
           <PrismicRichText field={page.data.catchphrase} />
         </div>
-        <div>
-          <PrismicRichText field={page.data.analyze_field_description} />
-          <AnalyzeField />
+        <div className={styles.analyzeFieldContainer}>
+          <div className={styles.analyzeField}>
+            <PrismicRichText field={page.data.analyze_field_description} />
+            <AnalyzeField />
+          </div>{' '}
         </div>
 
         <div className={styles.buttonLogoContainer}>
