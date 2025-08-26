@@ -27,6 +27,12 @@ export default function ListContainer({ user }: ListContainerProps) {
         <div className={styles.linksContainer}>
           {user?.sets.map((set, index) => (
             <div key={index} className={styles.scannedMix}>
+              <Image
+                src={set.thumbnail}
+                alt={`${set.source} ${index}`}
+                width={30}
+                height={30}
+              />
               <Link
                 href={'https://www.kibo-ui.com/components/image-crop'}
                 target="_blank"
