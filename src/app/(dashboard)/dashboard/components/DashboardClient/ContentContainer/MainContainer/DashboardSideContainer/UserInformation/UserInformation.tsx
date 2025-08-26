@@ -1,12 +1,12 @@
 import React from 'react';
-import { User } from '../../../../../../../../../lib/types/user';
+import { User } from '../../../../../../../../../../lib/types/user';
 
 import styles from './UserInformation.module.css';
 
 import {
   ReplaceIconDocument,
   UserAvatarDocument,
-} from '../../../../../../../../../prismicio-types';
+} from '../../../../../../../../../../prismicio-types';
 
 // module imports
 import Information from './Information/Information';

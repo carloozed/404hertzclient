@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '../../../../../../../../../../lib/types/user';
+import { User } from '../../../../../../../../../../../lib/types/user';
 
 import styles from './Information.module.css';
 import FieldContainer from './FieldContainer/FieldContainer';

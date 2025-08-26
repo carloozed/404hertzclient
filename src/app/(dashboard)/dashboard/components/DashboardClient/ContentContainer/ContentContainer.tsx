@@ -25,7 +25,7 @@ export default function ContentContainer({
   userAvatar,
   replaceIcon,
 }: ContentContainerProps) {
-  console.log(user && user);
+  console.log('ijasdfjldskj', user && user.tracks);
 
   const mainContainerProps = {
     user,

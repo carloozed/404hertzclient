@@ -4,6 +4,8 @@
     padding: var(--spacing-3);
     padding-left: 0;
     height: fit-content;
+    width: 100%;
+    position: relative;
 }
 
 .albumCover img {
@@ -16,6 +18,7 @@
     flex-direction: column;
     gap: var(--spacing-3);
     justify-content: center;
+    width: 100%;
 }
 
 .trackInfo {
@@ -33,6 +36,13 @@
     font-weight: 600;
 }
 
+.lowerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .buylinks {
     display: flex;
     gap: var(--spacing-3)
@@ -41,4 +51,33 @@
 .buylinks img {
     height: var(--spacing-5);
     width: var(--spacing-5);
+}
+
+.confidenceScore {
+    padding: var(--spacing-1);
+    padding-right: var(--spacing-3);
+    position: relative;
+
+}
+
+.confidenceColor {
+    height: var(--spacing-2);
+    width: var(--spacing-2);
+    border-radius: 20px;
+    border: 0.5px solid black;
+}
+
+.confidenceText {
+    position: absolute;
+    min-width: fit-content;
+    background-color: var(--main-color);
+    bottom: 0;
+    right: 5.5%;
+}
+
+.confidenceText p {
+    width: fit-content;
+    border: 1px solid black;
+    font-size: var(--text-s);
+    padding: var(--spacing-1);
 }

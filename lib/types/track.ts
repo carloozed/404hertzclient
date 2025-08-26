@@ -16,4 +16,5 @@ export interface Track {
   updated_at: string;
   user: number;
   set: number[];
+  confidence_score: number;
 }
