@@ -3,28 +3,19 @@ import { notFound } from 'next/navigation';
 import { asImageSrc } from '@prismicio/client';
 
 import { createClient } from '@/prismicio';
-import LoginForm from './components/FormComponents/LoginForm/LoginForm';
-import AnalyzeField from './components/FormComponents/AnalyzeField/AnalyzeField';
-import LogoutUser from './components/FormComponents/LogoutUser/LogoutUser';
+
+import styles from './page.module.css';
+
+import HomepageContent from './HomepageComponents/HomepageContent/HomepageContent';
 
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle('homepage').catch(() => notFound());
 
   return (
-    <div
-      style={{
-        marginTop: '10rem',
-        width: '24rem',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '2rem',
-      }}
-    >
-      <LoginForm />
-      <AnalyzeField />
-      <LogoutUser />
-    </div>
+    <main className={styles.main}>
+      <HomepageContent page={page} />
+    </main>
   );
 }
 

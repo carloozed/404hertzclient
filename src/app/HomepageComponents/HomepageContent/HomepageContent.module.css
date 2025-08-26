@@ -1,0 +1,59 @@
+.mainContainer {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    max-height: 100svh;
+    height: 100svh;
+    overflow: hidden;
+}
+
+
+.rightContainer,
+.leftContainer {
+    height: 100%;
+    width: 100%;
+    padding: var(--spacing-4);
+}
+
+.rightContainer {}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--spacing-24)
+}
+
+
+.rightContainer {
+    background-image: linear-gradient(var(--black) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--black) 0.5px, transparent 0.5px);
+    background-size: 5vw 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-12)
+}
+
+.rightContainer p {
+    width: 60%;
+    line-height: 150%;
+    font-size: var(--text-l)
+}
+
+.buttonLogoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 100%;
+    gap: var(--spacing-24)
+}
+
+.logoContainer img {
+    height: 20vw;
+    object-fit: contain;
+}

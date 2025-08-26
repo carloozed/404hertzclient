@@ -13,7 +13,7 @@ export default function StatsContainer({ user }: StatsContainerProps) {
   return (
     <div className={styles.leftContainer}>
       <div className={styles.scannedMixesAmount}>
-        <div style={{ borderBottom: '1px solid black' }}>
+        <div style={{ borderBottom: '1px solid var(--black)' }}>
           <TitleContainer title="Scanned Mixes" />
           <h2>
             <CountUp end={user?.sets.length || 0} duration={4} />

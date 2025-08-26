@@ -1,14 +1,44 @@
 {
   "format": "page",
   "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
+      "catchphrase": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Catchphrase",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1,heading2"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading5,heading4,heading6,strong,em,hyperlink"
+        }
+      },
+      "analyze_field_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Analyze Field Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
       "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +68,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Homepage",
-  "repeatable": false,
-  "status": true
+  }
 }

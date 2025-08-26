@@ -3,6 +3,8 @@
     column-gap: var(--spacing-24);
     background-color: var(--main-color);
     pointer-events: all;
+    border: var(--border);
+    padding: var(--spacing-1) var(--spacing-8)
 }
 
 .container *::selection {
@@ -45,10 +47,11 @@
 .iconContainer {
     display: flex;
     gap: var(--spacing-8);
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 
 .iconContainer img {
-    transform: scale(0.8);
+    transform: translateY(2px) scale(0.8);
+
 }
