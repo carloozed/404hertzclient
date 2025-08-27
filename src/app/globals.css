@@ -32,6 +32,8 @@
   /* beziers */
 
   --spring-bezier: cubic-bezier(0.175, 0.885, 0.32, 1.075);
+  --bezier: cubic-bezier(0.175, 0.885, 0.32, 1.0);
+
 
 
   /* Base spacing unit (16px) */
