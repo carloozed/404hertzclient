@@ -7,12 +7,16 @@ import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import styles from './AnalyzeField.module.css';
 import { useAnalyzeStore } from '../../../../../stores/UseAnalyzeStore';
 
+import { useUserStore } from '../../../../../stores/UserStore';
+
 type AnalyzeFieldProps = {
   width?: string | number;
 };
 
 export default function AnalyzeField({ width }: AnalyzeFieldProps) {
   const [url, setUrl] = useState('');
+
+  const { user } = useUserStore();
 
   const { isAnalyzing, setIsAnalyzing, setResponse, response } =
     useAnalyzeStore();
@@ -43,14 +47,14 @@ export default function AnalyzeField({ width }: AnalyzeFieldProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter URL to analyze"
-          disabled={isAnalyzing}
+          disabled={!user || isAnalyzing}
           style={{ width: width || 'calc(10rem + 15vw)' }}
         />
         <ButtonBlack
           hasImage={false}
           buttonText={isAnalyzing ? 'Analyzing...' : 'Analyze'}
           type="submit"
-          disabled={isAnalyzing}
+          disabled={!user || isAnalyzing}
           height={'3rem'}
         />
       </form>
