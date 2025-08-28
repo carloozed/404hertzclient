@@ -43,19 +43,19 @@ export default function HomepageContent({ page }: HomepageContentProps) {
       </div>
       <div className={styles.rightContainer}>
         <div
+          className={`${styles.responseContainer} ${response ? styles.responseGood : ''}`}
+        >
+          <div className={styles.responses}>
+            {response &&
+              response.tracks.map((track, index) => (
+                <TrackComponent key={index} track={track} index={index} />
+              ))}
+          </div>
+        </div>
+        <div
           className={`${styles.logoContainer} ${isAnalyzing ? styles.animation : ''}`}
         >
           <Logo />
-          <div
-            className={`${styles.responseContainer} ${response ? styles.responseGood : ''}`}
-          >
-            <div className={styles.responses}>
-              {response &&
-                response.tracks.map((track, index) => (
-                  <TrackComponent key={index} track={track} index={index} />
-                ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
