@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 import styles from './AvatarContainer.module.css';
 import { PrismicNextImage } from '@prismicio/next';
-import { User } from '../../../../../../../../../../lib/types/user';
+import { User } from '../../../../../../../../../../../lib/types/user';
 import {
-  ReplaceIconDocument,
   UserAvatarDocument,
-} from '../../../../../../../../../../prismicio-types';
+  ReplaceIconDocument,
+} from '../../../../../../../../../../../prismicio-types';
 
 type AvatarContainerProps = {
   user: User | null;
