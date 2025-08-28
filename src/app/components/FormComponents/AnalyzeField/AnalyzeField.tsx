@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { analyze } from '../../../../../lib/api/analyze';
 import ButtonBlack from '../../Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
 import styles from './AnalyzeField.module.css';
-import { AnalyzeResponse } from '../../../../../lib/types/analyze';
+import { useAnalyzeStore } from '../../../../../stores/UseAnalyzeStore';
 
 type AnalyzeFieldProps = {
   width?: string | number;
@@ -13,21 +13,25 @@ type AnalyzeFieldProps = {
 
 export default function AnalyzeField({ width }: AnalyzeFieldProps) {
   const [url, setUrl] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState<AnalyzeResponse | null>(null);
+
+  const { isAnalyzing, setIsAnalyzing, setResponse, response } =
+    useAnalyzeStore();
 
   const analyzeMix = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
+
+    if (isAnalyzing) return;
+
+    setIsAnalyzing(true);
 
     try {
       const data = await analyze(url);
-      console.log('Analysis results:', data);
+      console.log('response, response', response);
       setResponse(data);
     } catch (err) {
       console.error('AnalyzeError:', err);
     } finally {
-      setLoading(false);
+      setIsAnalyzing(false);
     }
   };
 
@@ -39,25 +43,17 @@ export default function AnalyzeField({ width }: AnalyzeFieldProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter URL to analyze"
-          disabled={loading}
+          disabled={isAnalyzing}
           style={{ width: width || 'calc(10rem + 15vw)' }}
         />
         <ButtonBlack
           hasImage={false}
-          buttonText={loading ? 'Analyzing...' : 'Analyze'}
+          buttonText={isAnalyzing ? 'Analyzing...' : 'Analyze'}
           type="submit"
-          disabled={loading}
+          disabled={isAnalyzing}
           height={'3rem'}
         />
       </form>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        {response &&
-          response.tracks.map((track, index) => (
-            <a target="_blank" key={index} href={track.youtube ?? undefined}>
-              {track.title}
-            </a>
-          ))}
-      </div>
     </div>
   );
 }

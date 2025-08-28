@@ -1,0 +1,6 @@
+.buttonContainer {
+    display: flex;
+    gap: var(--spacing-24);
+    height: fit-content;
+    transform: translateY(200%);
+}

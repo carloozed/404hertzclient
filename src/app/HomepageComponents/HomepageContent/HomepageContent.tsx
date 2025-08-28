@@ -2,14 +2,20 @@
 
 import React, { useState } from 'react';
 import { HomepageDocument } from '../../../../prismicio-types';
-import AnalyzeField from '@/app/components/FormComponents/AnalyzeField/AnalyzeField';
+
 import Logo from '@/app/components/Logo/Logo';
 
 import styles from './HomepageContent.module.css';
-import { PrismicRichText } from '@prismicio/react';
-import ButtonWhite from '@/app/components/Buttons/ButtonStyles/ButtonWhite/ButtonWhite';
-import ButtonBlack from '@/app/components/Buttons/ButtonStyles/ButtonBlack/ButtonBlack';
-import LoginForm from '@/app/components/FormComponents/LoginForm/LoginForm';
+import LoginContainer from './LoginContainer/LoginContainer';
+
+// store imports
+import { useAnalyzeStore } from '../../../../stores/UseAnalyzeStore';
+
+// component imports
+import ButtonBar from './ButtonBar/ButtonBar';
+import Catchphrase from './Catchphrase/Catchphrase';
+import AnalyzeFieldComponent from './AnalyzeField/AnalyzeFieldComponent';
+import TrackComponent from '@/app/(dashboard)/dashboard/components/DashboardClient/ContentContainer/MainContainer/Overview/components/Track/Track';
 
 type HomepageContentProps = {
   page: HomepageDocument;
@@ -18,61 +24,38 @@ type HomepageContentProps = {
 export default function HomepageContent({ page }: HomepageContentProps) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
+  const { response, isAnalyzing } = useAnalyzeStore();
+
+  console.log(response);
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.leftContainer}>
-        <div
-          className={`${styles.loginContainer} ${isLoginOpen ? styles.loginopen : ''}`}
-        >
-          <div className={styles.loginWrapper}>
-            <div
-              className={styles.crossContainer}
-              onClick={() => setIsLoginOpen(false)}
-            >
-              <div className={styles.cross}>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-            <div>
-              <h2>Welcome back!</h2>
-              <h5>
-                Enter your Login Credentials below or use the options available
-              </h5>
-            </div>
-            <div className={styles.loginFormWrapper}>
-              <LoginForm />
-            </div>
-          </div>
-        </div>
-        <div
-          className={styles.catchphrase}
-          style={{
-            opacity: `${isLoginOpen ? '0' : '1'}`,
-            transition: 'opacity 0.5s ease-in-out',
-          }}
-        >
-          <PrismicRichText field={page.data.catchphrase} />
-        </div>
-        <div className={styles.analyzeFieldContainer}>
-          <div className={styles.analyzeField}>
-            <PrismicRichText field={page.data.analyze_field_description} />
-            <AnalyzeField />
-          </div>{' '}
-        </div>
+        <LoginContainer
+          isLoginOpen={isLoginOpen}
+          setIsLoginOpen={setIsLoginOpen}
+        />
+        <Catchphrase isLoginOpen={isLoginOpen} page={page} />
+        <AnalyzeFieldComponent page={page} />
         <div className={styles.buttonLogoContainer}>
-          <div className={styles.buttonContainer}>
-            <ButtonWhite
-              buttonText="Log In"
-              onClick={() => setIsLoginOpen(true)}
-            />
-            <ButtonBlack buttonText="Sign Up" />
-          </div>
+          <ButtonBar setIsLoginOpen={setIsLoginOpen} />
         </div>
       </div>
       <div className={styles.rightContainer}>
-        <div className={styles.logoContainer}>
+        <div
+          className={`${styles.logoContainer} ${isAnalyzing ? styles.animation : ''}`}
+        >
           <Logo />
+          <div
+            className={`${styles.responseContainer} ${response ? styles.responseGood : ''}`}
+          >
+            <div className={styles.responses}>
+              {response &&
+                response.tracks.map((track, index) => (
+                  <TrackComponent key={index} track={track} index={index} />
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

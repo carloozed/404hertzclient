@@ -1,0 +1,20 @@
+.catchphrase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--spacing-24);
+    gap: var(--spacing-2);
+    transform: translateY(20%)
+}
+
+.catchphrase h2 {
+    font-weight: 300;
+}
+
+
+.catchphrase h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

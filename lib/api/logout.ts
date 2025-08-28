@@ -1,3 +1,5 @@
+import { useUserStore } from '../../stores/UserStore';
+
 export const logout = async (): Promise<void> => {
   try {
     const token = localStorage.getItem('authToken');
@@ -20,6 +22,7 @@ export const logout = async (): Promise<void> => {
     }
 
     localStorage.removeItem('authToken');
+    useUserStore.getState().logout();
   } catch (error) {
     console.error('Logout error:', error);
     localStorage.removeItem('authToken');
