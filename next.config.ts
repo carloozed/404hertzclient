@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'e-cdns-images.dzcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'thumbnailer.mixcloud.com',
         port: '',
         pathname: '/**',
