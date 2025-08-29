@@ -1,7 +1,12 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // 👇 this tells Next.js to do a static export into ./out
+  output: 'export',
+
+  // 👇 required for S3 (no Node.js image optimizer available)
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -35,6 +40,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // optional but nice for S3 "static website hosting"
+  // trailingSlash: true,
 };
 
 export default nextConfig;

@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+_disabled/**
+src_app_api.disabled/**
+src_app_slice_simulator.disabled/**
+**/*.disabled/**
