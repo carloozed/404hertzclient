@@ -18,6 +18,8 @@ export type ButtonProps = {
   hasImage?: boolean;
   hasText?: boolean;
   height?: string | number;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
 };
 
 export default function ButtonBlack({
@@ -29,6 +31,8 @@ export default function ButtonBlack({
   hasImage = true,
   hasText = true,
   height = '2rem',
+  onMouseOver,
+  onMouseLeave,
 }: ButtonProps) {
   return (
     <button
@@ -36,6 +40,8 @@ export default function ButtonBlack({
       className={styles.button}
       type={type}
       style={{ height: height }}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
     >
       <div className={styles.box}>
         {hasText && <p>{buttonText ? buttonText : 'Black Button'}</p>}

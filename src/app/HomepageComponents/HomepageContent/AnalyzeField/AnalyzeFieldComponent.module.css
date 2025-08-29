@@ -3,7 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(20%)
+    transform: translateY(20%);
+    position: relative;
+    z-index: 10;
 }
 
 
@@ -11,4 +13,22 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
+}
+
+.alert {
+    position: absolute;
+    right: -25%;
+    top: 15%;
+    padding: var(--spacing-4);
+    width: calc(9rem + 9vw);
+    border: var(--border);
+    background-color: var(--accent-color);
+}
+
+.alert p {
+    line-height: 20px;
+}
+
+.alert span {
+    text-decoration: underline;
 }

@@ -35,7 +35,7 @@ export default function DashboardSideContainer({
 
   return (
     <div className={styles.container}>
-      {selectedItem === 'account overview' ? (
+      {selectedItem === 'user information' ? (
         <UserInformation {...userInformationProps} />
       ) : selectedItem === 'scanned sets' ? (
         <SetsFilterComponent {...setsFilterProps} />

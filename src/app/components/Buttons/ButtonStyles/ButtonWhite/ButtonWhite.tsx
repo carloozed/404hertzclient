@@ -16,6 +16,9 @@ export type ButtonProps = {
   arrowWidth?: number;
   arrowHeight?: number;
   hasImage?: boolean;
+  height?: string | number;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
 };
 
 export default function ButtonWhite({
@@ -25,9 +28,19 @@ export default function ButtonWhite({
   arrowHeight,
   type,
   hasImage = true,
+  height,
+  onMouseOver,
+  onMouseLeave,
 }: ButtonProps) {
   return (
-    <button onClick={onClick} className={styles.button} type={type}>
+    <button
+      onClick={onClick}
+      className={styles.button}
+      type={type}
+      style={{ height: height }}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+    >
       <div className={styles.box}>
         <p>{buttonText ? buttonText : 'White Button'}</p>
       </div>

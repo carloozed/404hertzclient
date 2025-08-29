@@ -19,7 +19,6 @@ export default function AvatarContainer({
   replaceIcon,
   user,
 }: AvatarContainerProps) {
-  console.log('afadfadfasdf', user && user.avatar);
   return (
     <div className={styles.avatarContainer}>
       <div className={styles.avatarImageContainer}>

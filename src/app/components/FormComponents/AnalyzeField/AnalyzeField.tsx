@@ -11,9 +11,14 @@ import { useUserStore } from '../../../../../stores/UserStore';
 
 type AnalyzeFieldProps = {
   width?: string | number;
+  isHovered?: boolean;
+  setIsHovered?: (hovered: boolean) => void;
 };
 
-export default function AnalyzeField({ width }: AnalyzeFieldProps) {
+export default function AnalyzeField({
+  width,
+  setIsHovered,
+}: AnalyzeFieldProps) {
   const [url, setUrl] = useState('');
 
   const { user } = useUserStore();
@@ -24,7 +29,7 @@ export default function AnalyzeField({ width }: AnalyzeFieldProps) {
   const analyzeMix = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isAnalyzing) return;
+    if (isAnalyzing || !user) return;
 
     setIsAnalyzing(true);
 
@@ -47,8 +52,8 @@ export default function AnalyzeField({ width }: AnalyzeFieldProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter URL to analyze"
-          disabled={!user || isAnalyzing}
-          style={{ width: width || 'calc(10rem + 15vw)' }}
+          disabled={isAnalyzing}
+          style={{ width: width || 'calc(12rem + 15vw)' }}
         />
         <ButtonBlack
           hasImage={false}
@@ -56,6 +61,8 @@ export default function AnalyzeField({ width }: AnalyzeFieldProps) {
           type="submit"
           disabled={!user || isAnalyzing}
           height={'3rem'}
+          onMouseOver={() => setIsHovered && setIsHovered(true)}
+          onMouseLeave={() => setIsHovered && setIsHovered(false)}
         />
       </form>
     </div>
