@@ -10,6 +10,7 @@
     transform: translateY(100%);
     transition: transform 0.8s var(--bezier);
     padding: var(--spacing-12);
+    z-index: 12;
 }
 
 .loginWrapper {

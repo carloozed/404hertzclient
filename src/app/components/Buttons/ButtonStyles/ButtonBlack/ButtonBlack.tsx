@@ -6,6 +6,8 @@ import Image from 'next/image';
 import styles from './ButtonBlack.module.css'; // Adjust the path as needed
 import BlackArrow from '../../../../../../public/images/arrows/black/arrow_black.svg';
 
+import { User } from '../../../../../../lib/types/user';
+
 export type ButtonProps = {
   onClick?: () => void;
   buttonText: string;
@@ -20,6 +22,7 @@ export type ButtonProps = {
   height?: string | number;
   onMouseOver?: () => void;
   onMouseLeave?: () => void;
+  user?: User | null;
 };
 
 export default function ButtonBlack({

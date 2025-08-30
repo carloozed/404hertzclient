@@ -18,17 +18,31 @@
 .alert {
     position: absolute;
     right: -25%;
-    top: 15%;
+    top: 5%;
+    overflow: hidden;
+}
+
+.alertContent {
+    position: relative;
     padding: var(--spacing-4);
     width: calc(9rem + 9vw);
     border: var(--border);
     background-color: var(--accent-color);
+    transform: translateY(110%);
+    transition: transform 0.5s var(--bezier);
+}
+
+.visible {
+    transform: translateY(0%)
+}
+
+.alert h4 {
+    margin: auto;
+    width: fit-content
 }
 
 .alert p {
     line-height: 20px;
-}
-
-.alert span {
-    text-decoration: underline;
+    text-align: center;
+    padding-top: var(--spacing-2)
 }

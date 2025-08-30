@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { AnalyzeResponse } from '../lib/types/analyze';
 
-type AnalyzeStoreProps = {
+export type AnalyzeStoreProps = {
   isAnalyzing: boolean;
   setIsAnalyzing: (isAnalyzing: boolean) => void;
   response: AnalyzeResponse | null;
