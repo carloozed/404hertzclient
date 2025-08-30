@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { login } from '../../../../../lib/api/login';
 
 import { useUserStore } from '../../../../../stores/UserStore';
@@ -20,7 +19,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter();
 
   const { setUser, setLoading: setUserLoading } = useUserStore();
 
@@ -42,7 +40,6 @@ export default function LoginForm() {
           setUser(null);
         }
       }
-      router.push('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
       console.error('Login error:', err);
