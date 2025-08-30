@@ -29,7 +29,7 @@
     border: var(--border);
     background-color: var(--accent-color);
     transform: translateY(110%);
-    transition: transform 0.5s var(--bezier);
+    transition: transform 0.5s ease-in-out;
 }
 
 .visible {
