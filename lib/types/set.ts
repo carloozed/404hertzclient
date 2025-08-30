@@ -5,4 +5,5 @@ export interface Set {
   thumbnail: string;
   genre: string | null;
   source: string;
+  url: string;
 }

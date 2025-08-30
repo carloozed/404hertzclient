@@ -16,6 +16,7 @@ import ButtonBar from './ButtonBar/ButtonBar';
 import Catchphrase from './Catchphrase/Catchphrase';
 import AnalyzeFieldComponent from './AnalyzeField/AnalyzeFieldComponent';
 import TrackComponent from '@/app/(dashboard)/dashboard/components/DashboardClient/ContentContainer/MainContainer/Overview/components/Track/Track';
+import SetComponent from '@/app/(dashboard)/dashboard/components/DashboardClient/ContentContainer/MainContainer/ScannedMixes/components/Mix/SetComponent';
 
 type HomepageContentProps = {
   page: HomepageDocument;
@@ -25,8 +26,6 @@ export default function HomepageContent({ page }: HomepageContentProps) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const { response, isAnalyzing } = useAnalyzeStore();
-
-  console.log(response);
 
   return (
     <div className={styles.mainContainer}>
@@ -45,6 +44,21 @@ export default function HomepageContent({ page }: HomepageContentProps) {
         <div
           className={`${styles.responseContainer} ${response ? styles.responseGood : ''}`}
         >
+          <div>
+            <h4>Analyzing now: </h4>
+            {response && (
+              <SetComponent
+                author={response.author}
+                thumbnail={response.thumbnail}
+                id={response.id}
+                genre={response.genre}
+                url={response.url}
+                title={response.title}
+                source={response.url}
+                isHome={true}
+              />
+            )}
+          </div>
           <div className={styles.responses}>
             {response &&
               response.tracks.map((track, index) => (

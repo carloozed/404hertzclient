@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 100svh;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-6)
+}

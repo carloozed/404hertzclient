@@ -318,6 +318,93 @@ interface LogoDocumentData {
 export type LogoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<LogoDocumentData>, "logo", Lang>;
 
+type LogoutsuccessfulDocumentDataSlicesSlice = never;
+
+/**
+ * Content for LogoutSuccessful documents
+ */
+interface LogoutsuccessfulDocumentData {
+  /**
+   * Logout Was successful field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logoutsuccessful.logout_was_successful
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  logout_was_successful: prismic.RichTextField;
+
+  /**
+   * Redirect field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logoutsuccessful.redirect
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  redirect: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logoutsuccessful.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<LogoutsuccessfulDocumentDataSlicesSlice> /**
+   * Meta Title field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: logoutsuccessful.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: logoutsuccessful.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *LogoutSuccessful*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logoutsuccessful.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * LogoutSuccessful document from Prismic
+ *
+ * - **API ID**: `logoutsuccessful`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LogoutsuccessfulDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<LogoutsuccessfulDocumentData>,
+    "logoutsuccessful",
+    Lang
+  >;
+
 /**
  * Item in *Navigation → Items*
  */
@@ -657,6 +744,7 @@ export type AllDocumentTypes =
   | HomepageDocument
   | LoginButtonDocument
   | LogoDocument
+  | LogoutsuccessfulDocument
   | NavigationDocument
   | ReplaceIconDocument
   | SettingsDocument
@@ -695,6 +783,9 @@ declare module "@prismicio/client" {
       LoginButtonDocumentData,
       LogoDocument,
       LogoDocumentData,
+      LogoutsuccessfulDocument,
+      LogoutsuccessfulDocumentData,
+      LogoutsuccessfulDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataItemsItem,

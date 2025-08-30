@@ -62,9 +62,9 @@
 .responseContainer {
     padding: var(--spacing-4);
     position: absolute;
-    min-height: 50;
+    min-height: 50%;
     min-width: 100%;
-    height: 50%;
+    height: 60%;
     width: 100%;
     background-color: var(--main-color);
     border: 0.5px solid var(--black);
@@ -75,6 +75,7 @@
     overflow: scroll;
     transform: translateY(100%);
     transition: transform 0.5s var(--bezier);
+    z-index: 10;
 }
 
 .responseGood {
@@ -82,6 +83,7 @@
 }
 
 .responses {
+    padding-top: var(--spacing-12);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

@@ -16,7 +16,6 @@ const analyzeMix = async ({
   user,
   setIsAnalyzing,
   setResponse,
-  response,
   url,
 }: AnalyzeMixProps) => {
   e.preventDefault();
@@ -24,15 +23,34 @@ const analyzeMix = async ({
 
   setIsAnalyzing(true);
 
-  try {
-    const data = await analyze(url);
-    console.log('response, response', response);
-    setResponse(data);
-  } catch (err) {
-    console.error('AnalyzeError:', err);
-  } finally {
-    setIsAnalyzing(false);
-  }
+  const pollInterval = 2000;
+  const totalDuration = 35000;
+  let elapsedTime = 0;
+
+  const fetchData = async () => {
+    try {
+      const data = await analyze(url);
+      console.log('response, response', data);
+      setResponse(data);
+    } catch (err) {
+      console.error('AnalyzeError:', err);
+    }
+  };
+
+  // Initial fetch
+  await fetchData();
+
+  const intervalId = setInterval(async () => {
+    elapsedTime += pollInterval;
+
+    if (elapsedTime >= totalDuration) {
+      clearInterval(intervalId);
+      setIsAnalyzing(false);
+      return;
+    }
+
+    await fetchData();
+  }, pollInterval);
 };
 
 export default analyzeMix;
