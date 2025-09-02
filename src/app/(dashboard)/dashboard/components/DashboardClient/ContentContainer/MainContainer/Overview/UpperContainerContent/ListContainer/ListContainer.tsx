@@ -17,7 +17,6 @@ type ListContainerProps = {
 export default function ListContainer({ user }: ListContainerProps) {
   const getLogoUrl = useLogoSwitcher();
 
-  console.log(user?.sets);
   return (
     <div className={styles.rightContainer}>
       <div className={styles.titleContainer}>
@@ -27,12 +26,14 @@ export default function ListContainer({ user }: ListContainerProps) {
         <div className={styles.linksContainer}>
           {user?.sets.map((set, index) => (
             <div key={index} className={styles.scannedMix}>
-              <Image
-                src={set.thumbnail}
-                alt={`${set.source} ${index}`}
-                width={30}
-                height={30}
-              />
+              <Link href={set.url} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={set.thumbnail}
+                  alt={`${set.source} ${index}`}
+                  width={30}
+                  height={30}
+                />
+              </Link>
               <Link
                 href={'https://www.kibo-ui.com/components/image-crop'}
                 target="_blank"

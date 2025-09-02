@@ -47,6 +47,8 @@ export default function HomepageContent({ page }: HomepageContentProps) {
     }
   }, [user]);
 
+  console.log('addfsfd', response);
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.leftContainer}>

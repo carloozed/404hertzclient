@@ -20,11 +20,13 @@ export default function SetComponent({
 }: SetProps) {
   const getLogoUrl = useLogoSwitcher();
 
+  console.log(set);
+
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
         <div className={styles.setImageContainer}>
-          <Link href={set.url}>
+          <Link href={set.url} target="_blank" rel="noopener noreferrer">
             <Image
               src={set.thumbnail}
               alt={`${set.source}`}
@@ -45,14 +47,12 @@ export default function SetComponent({
             <h5>{set && set.author}</h5>
           </div>
           <div className={styles.sourceLogoContainer}>
-            <Link href={set.url} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={getLogoUrl(set.source)}
-                alt={`${set.source}`}
-                width={25}
-                height={25}
-              />
-            </Link>
+            <Image
+              src={getLogoUrl(set.source)}
+              alt={`${set.source}`}
+              width={25}
+              height={25}
+            />
           </div>
         </div>
       </div>

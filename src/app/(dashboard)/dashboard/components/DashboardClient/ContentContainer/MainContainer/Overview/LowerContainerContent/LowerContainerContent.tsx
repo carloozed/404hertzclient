@@ -10,7 +10,6 @@ type LowerContainerProps = {
 };
 
 export default function LowerContainerContent({ user }: LowerContainerProps) {
-  console.log(user?.tracks);
   return (
     <div className={styles.container}>
       <TitleContainer title={`${user?.tracks.length || 0} Tracks Found`} />
